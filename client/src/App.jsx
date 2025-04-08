@@ -20,12 +20,12 @@ function App() {
 
     return (
         <div data-theme={isDarkMode ? 'dark' : 'light'} className="app">
-            <button
+            {/*<button
                 className="theme-button cursor-pointer absolute right-4 top-4"
                 onClick={toggleTheme}
             >
                 {isDarkMode ? <Sun size={20}/> : <Moon size={20}/>}
-            </button>
+            </button>*/}
 
             <Header/>
             <main>
