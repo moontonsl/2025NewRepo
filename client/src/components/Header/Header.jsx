@@ -10,7 +10,7 @@ const navLinks = [
 
 const Header = () => {
     return (
-        <div className={styles.header}>
+        <header className={styles.header}>
             <div className={styles.container}>
 
                 <div className={styles.logo}>
@@ -35,7 +35,7 @@ const Header = () => {
                 </div>
 
             </div>
-        </div>
+        </header>
     );
 };
 

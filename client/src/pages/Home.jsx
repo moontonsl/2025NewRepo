@@ -22,7 +22,7 @@ const Home = () => {
 
   return (
       <>
-          <h1 className="flex items-center justify-center min-h-screen text-6xl font-bold text-center">{message}</h1>
+          <h1 className="flex items-center justify-center text-6xl font-bold text-center">{message}</h1>
       </>
   )
 }
