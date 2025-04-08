@@ -8,10 +8,15 @@ export default defineConfig({
         tailwindcss(),
         react()
     ],
+    resolve: {
+        alias: {
+            '@': '/src',
+        },
+    },
     server: {
         host: true,
         proxy: {
-            '/api': 'https://alanoliveros-fullstack.onrender.com'
+            '/api': 'http://localhost:5000'
         }
     }
 })

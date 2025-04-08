@@ -1,0 +1,55 @@
+.header {
+  background: var(--background-default-secondary);
+  border-bottom: var(--stroke-border) solid var(--border-default-default);
+  height: 56px;
+
+
+  .container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-inline: auto;
+    max-width: 1536px;
+    padding-inline: 1rem;
+
+    .logo {
+      flex-shrink: 0;
+      height: 40px;
+
+      img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    nav {
+      text-transform: uppercase;
+      font-size: var(--body-size-small);
+      font-weight: 500;
+      padding-inline: 4rem;
+      width: 100%;
+
+      ul {
+        display: flex;
+        gap: 2rem;
+      }
+    }
+
+    .headerAuth {
+      flex-shrink: 0;
+      height: 40px;
+
+      img {
+
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        border-radius: 100%;
+      }
+
+
+    }
+  }
+}
