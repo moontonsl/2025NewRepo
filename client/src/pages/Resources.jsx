@@ -12,7 +12,7 @@ const Resources = () => {
 
     return (
         <>
-            <h1 className="flex items-center justify-center text-6xl font-bold text-center">{fileName} page!</h1>
+            <h1 className="flex items-center justify-center text-6xl font-bold text-center">{fileName} page</h1>
         </>
     );
 }

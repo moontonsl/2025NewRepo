@@ -6,7 +6,7 @@ const Home = () => {
     useEffect(() => {
         const apiUrl = process.env.NODE_ENV === 'development'
             ? '/api/example'  // Proxy in development
-            : 'https://something.com/api/example';  // Production URL
+            : `${import.meta.env.VITE_API_BASE_URL}/example`;  // Production URL
 
         fetch(apiUrl)
             .then(res => res.json())
