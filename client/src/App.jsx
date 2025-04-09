@@ -1,15 +1,9 @@
 import './styles/App.scss'
-import Home from "./pages/Home.jsx";
-import Header from "./components/Header/Header.jsx";
-import Footer from "./components/Footer/Footer.jsx";
 import {Sun, Moon} from "lucide-react";
-
 import {Route, Routes} from 'react-router-dom';
 import {useState} from "react";
-import Events from "./pages/Events.jsx";
-import News from "./pages/News.jsx";
-import Program from "./pages/Program.jsx";
-import Resources from "./pages/Resources.jsx";
+import {Events, Home, News, Program, Resources} from "./pages/index.js";
+import {Footer, Header} from "./components/index.js";
 
 function App() {
     const [isDarkMode, setIsDarkMode] = useState(true);

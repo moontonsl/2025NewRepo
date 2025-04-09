@@ -1,5 +1,9 @@
 //@use "./debug";
 
+/*------------------------------------*\
+  #STYLING-HERE ↓
+\*------------------------------------*/
+
 .app {
   color: var(--text-default-default);
   background-color: var(--background-default-default);
@@ -28,7 +32,6 @@
   footer {
     grid-area: footer;
   }
-
 
 }
 

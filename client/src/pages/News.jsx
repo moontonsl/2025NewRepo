@@ -1,47 +1,52 @@
 import { useEffect, useState } from "react";
 
 const News = () => {
-    const [fileName, setFileName] = useState("");
-    const [newsData, setNewsData] = useState(null);
+    const [newsList, setNewsList] = useState([]);
 
     useEffect(() => {
-        // Set page name
-        const path = window.location.pathname;
-        const name = path.split("/").pop().split(".")[0];
-        setFileName(name);
-
-        // Fetch news data
         const apiUrl = import.meta.env.DEV
             ? '/api/data/news'
-            : `${import.meta.env.VITE_API_BASE_URL}/news`;
+            : `${import.meta.env.VITE_API_BASE_URL}/data/news`;
 
         fetch(apiUrl)
-            .then((res) => res.json())
-            .then((data) => {
+            .then(res => res.json())
+            .then(data => {
                 console.log("News data:", data);
-                setNewsData(data);
+                setNewsList(data);
             })
-            .catch((err) => {
-                console.error("Failed to fetch news data", err);
+            .catch(err => {
+                console.error("Failed to fetch news", err);
             });
     }, []);
 
     return (
-        <>
-            <h1 className="text-6xl font-bold text-center mb-4">
-                {fileName} page
-            </h1>
-            {newsData ? (
-                <div className="text-center text-lg">
-                    <p><strong>Title:</strong> {newsData.title}</p>
-                    <p><strong>Description:</strong> {newsData.description}</p>
-                    <p><strong>Date:</strong> {newsData.date}</p>
-                    <p><strong>Author:</strong> {newsData.author}</p>
+        <div className="p-4">
+            <h1 className="text-5xl font-bold text-center mb-6">News</h1>
+            {newsList.length > 0 ? (
+                <div className="space-y-6">
+                    {newsList.map((news, idx) => (
+                        <div
+                            key={idx}
+                            className="border p-4 rounded shadow-md max-w-xl mx-auto"
+                        >
+                            <h2 className="text-2xl font-bold mb-2">{news.title}</h2>
+                            <p><strong>Description:</strong> {news.description}</p>
+                            <p><strong>Date:</strong> {news.date}</p>
+                            <p><strong>Author:</strong> {news.author}</p>
+                            {news.link && (
+                                <p>
+                                    <a href={news.link} target="_blank" className="text-blue-500 underline">
+                                        Read More
+                                    </a>
+                                </p>
+                            )}
+                        </div>
+                    ))}
                 </div>
             ) : (
-                <p className="text-center">Loading news data...</p>
+                <p className="text-center">Loading news...</p>
             )}
-        </>
+        </div>
     );
 };
 
