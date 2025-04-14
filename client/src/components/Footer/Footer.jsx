@@ -83,12 +83,12 @@ const Footer = () => {
             <div className={styles.partnered}>
                 <div className={styles.partneredLogo}>
                     <Link to="/">
-                        <img src="/msl-logo.png" alt="MSL Logo"/>
+                        <img src="/mlbb-logo.png" alt="MSL Logo"/>
                     </Link>
                 </div>
                 <div className={styles.partneredLogo}>
                     <Link to="/">
-                        <img src="/msl-logo.png" alt="MSL Logo"/>
+                        <img src="/moonton-logo.png" alt="MSL Logo"/>
                     </Link>
                 </div>
             </div>

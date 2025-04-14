@@ -5,9 +5,12 @@
 
   .footerTop {
     display: grid;
-    grid-template-columns: .6fr 1fr;
     gap: 2rem;
     margin-bottom: 2rem;
+
+    @media (min-width: 1024px) {
+      grid-template-columns: .6fr 1fr;
+    }
 
     .footerInfo {
 
@@ -24,13 +27,21 @@
         margin-top: 1rem;
         font-size: 0.875rem;
         opacity: 0.6;
+
+        @media (min-width: 768px) {
+          margin-left: 12px;
+        }
       }
     }
 
     .navGrid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 1rem;
+
+      @media (min-width: 768px) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
     }
 
     .navs {
