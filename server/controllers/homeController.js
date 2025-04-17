@@ -1,3 +1,3 @@
 exports.helloWorld = (req, res) => {
-    res.json({ message: 'Hello from the backend!' });
+    res.json({ message: 'Testing server (backend) and client (frontend) connection.' });
 };

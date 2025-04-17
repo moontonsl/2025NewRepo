@@ -26,7 +26,7 @@ const Home = () => {
 
   return (
       <>
-          {/*<h1 className="flex items-center justify-center text-6xl font-bold text-center">{message}</h1>*/}
+          <h1 className="bottom-0 text-3xl font-bold w-full uppercase text-center fixed mb-2">{message}</h1>
           <HeroSection/>
           <ExperienceSection/>
           <InfoSection/>
