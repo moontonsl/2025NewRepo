@@ -26,7 +26,7 @@ const Home = () => {
 
   return (
       <>
-          <h1 className="bottom-0 text-3xl font-bold w-full uppercase text-center fixed mb-2">{message}</h1>
+          <div className="bottom-0 text-sm w-full uppercase text-right fixed">{message}</div>
           <HeroSection/>
           <ExperienceSection/>
           <InfoSection/>
