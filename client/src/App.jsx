@@ -27,7 +27,7 @@ function App() {
             <Footer/>
 
             <button
-                className="theme-button cursor-pointer absolute right-4 bottom-4"
+                className="theme-button cursor-pointer absolute right-4 bottom-4 h"
                 onClick={toggleTheme}
             >
                 {isDarkMode ? <Sun size={20}/> : <Moon size={20}/>}

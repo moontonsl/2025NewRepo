@@ -1,5 +1,8 @@
 import {useEffect, useState} from "react";
 import HeroSection from "./components/HeroSection.jsx";
+import ExperienceSection from "./components/ExperienceSection.jsx";
+import InfoSection from "./components/InfoSection.jsx";
+import NewsSection from "./components/NewsSection.jsx";
 
 const Home = () => {
     const [message, setMessage] = useState('Loading...')
@@ -25,6 +28,9 @@ const Home = () => {
       <>
           {/*<h1 className="flex items-center justify-center text-6xl font-bold text-center">{message}</h1>*/}
           <HeroSection/>
+          <ExperienceSection/>
+          <InfoSection/>
+          <NewsSection/>
       </>
   )
 }
