@@ -1,6 +1,7 @@
 import styles from './Footer.module.scss';
 import {Link} from 'react-router-dom';
 import {Facebook, Instagram} from 'lucide-react';
+import ThemeToggleButton from "../ThemeToggleButton.jsx";
 
 const navSections = [
     {
@@ -96,6 +97,7 @@ const Footer = () => {
             <div className={styles.footerBottom}>
                 <div className={styles.footerCopyright}>© 2025 — Moonton Student Leaders Philippines</div>
                 <div className={styles.socials}>
+                    <ThemeToggleButton /> {/* Your new component */}
                     <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                         <Instagram size={20}/>
                     </a>
