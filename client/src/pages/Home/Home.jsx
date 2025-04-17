@@ -26,7 +26,7 @@ const Home = () => {
 
   return (
       <>
-          <div className="bottom-0 text-sm w-full uppercase text-right fixed">{message}</div>
+          <div className="bottom-0 text-sm w-full uppercase text-right fixed select-none z-50 mix-blend-exclusion">{message}</div>
           <HeroSection/>
           <ExperienceSection/>
           <InfoSection/>

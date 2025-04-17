@@ -119,11 +119,10 @@
       display: flex;
       gap: 1rem;
 
-      a {
-        color: #fff;
+      a, button {
 
         &:hover {
-          color: #ccc;
+          opacity: 0.6;
         }
       }
     }
