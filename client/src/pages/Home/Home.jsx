@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import HeroSection from "./components/HeroSection.jsx";
 
 const Home = () => {
     const [message, setMessage] = useState('Loading...')
@@ -22,7 +23,8 @@ const Home = () => {
 
   return (
       <>
-          <h1 className="flex items-center justify-center text-6xl font-bold text-center">{message}</h1>
+          {/*<h1 className="flex items-center justify-center text-6xl font-bold text-center">{message}</h1>*/}
+          <HeroSection/>
       </>
   )
 }
