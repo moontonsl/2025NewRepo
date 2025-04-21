@@ -3,6 +3,7 @@ import HeroSection from "./components/HeroSection.jsx";
 import ExperienceSection from "./components/ExperienceSection.jsx";
 import InfoSection from "./components/InfoSection.jsx";
 import NewsSection from "./components/NewsSection.jsx";
+import NetworkSection from "./components/NetworkSection.jsx";
 
 const Home = () => {
     const [message, setMessage] = useState('Loading...')
@@ -26,10 +27,11 @@ const Home = () => {
 
   return (
       <>
-          <div className="bottom-0 text-sm w-full uppercase text-right fixed select-none z-50 mix-blend-exclusion">{message}</div>
+          {/*<div className="bottom-0 text-sm w-full uppercase text-right fixed select-none z-50 mix-blend-exclusion">{message}</div>*/}
           <HeroSection/>
-          <ExperienceSection/>
           <InfoSection/>
+          <NetworkSection/>
+          <ExperienceSection/>
           <NewsSection/>
       </>
   )
