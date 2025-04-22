@@ -1,4 +1,5 @@
 // _variables.scss
+@use "sass:map";
 
 $padding-block: (
         default: 1rem,
@@ -7,12 +8,10 @@ $padding-block: (
         xl: 3rem
 );
 
-// tig extract padding based sa breakpoint
 @function get-padding($breakpoint) {
-  @return map-get($padding-block, $breakpoint);
+  @return map.get($padding-block, $breakpoint);
 }
 
-// header size is 56 — mekus mekus padding —> voila
 $hero-padding: (
         lg: 88px,
         xl: 152px
