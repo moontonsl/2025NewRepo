@@ -29,7 +29,7 @@ const NewsSection = () => {
     ];
 
     return (
-        <div className={`px-4 md:px-8 py-16`}>
+        <div className={`px-4 md:px-8 py-16 container mx-auto`}>
             <header className="text-center mb-6 md:mb-8">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
                     NEWS & FEATURES
