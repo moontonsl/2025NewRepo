@@ -24,7 +24,7 @@ const HeroSection = () => {
                 ))}
             </div>
 
-            <div className={`${styles.infoAbout} grid md:grid-cols-2`}>
+            <div className={`${styles.infoAbout} grid lg:grid-cols-2`}>
                 <div className={styles.infoImageWrapper}>
                     <img src={infoImage} alt="Moonton Student Leader" className={styles.infoImage} />
                 </div>
