@@ -97,7 +97,7 @@ const Footer = () => {
             <div className={styles.footerBottom}>
                 <div className={styles.footerCopyright}>© 2025 — Moonton Student Leaders Philippines</div>
                 <div className={styles.socials}>
-                    <ThemeToggleButton /> {/* Your new component */}
+                    {/*<ThemeToggleButton />*/}
                     <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                         <Instagram size={20}/>
                     </a>
