@@ -1,5 +1,5 @@
 import useEmblaCarousel from 'embla-carousel-react';
-import { useEffect } from 'react';
+import {useEffect, useRef, useState} from 'react';
 import styles from './HeroSection.module.scss';
 
 const images = [
@@ -10,24 +10,42 @@ const images = [
 
 const HeroSection = () => {
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+    const autoplayInterval = useRef(null);
+    const [isHovered, setIsHovered] = useState(false);
 
+    // Autoplay logic
     useEffect(() => {
-        const autoplay = setInterval(() => {
-            if (emblaApi) {
-                emblaApi.scrollNext();
-            }
-        }, 3000); // 3000ms = 3 seconds sus
+        if (!emblaApi) return;
 
-        return () => clearInterval(autoplay);
-    }, [emblaApi]);
+        const autoplay = () => {
+            autoplayInterval.current = setInterval(() => {
+                if (!isHovered) emblaApi.scrollNext();
+            }, 3000);
+        };
+
+        autoplay();
+
+        return () => {
+            if (autoplayInterval.current) clearInterval(autoplayInterval.current);
+        };
+    }, [emblaApi, isHovered]);
+
+    // Handlers for mouse hover
+    const handleMouseEnter = () => setIsHovered(true);
+    const handleMouseLeave = () => setIsHovered(false);
 
     return (
         <div className={styles.heroSection}>
             <div className={styles.heroWrapper}>
                 <div className={styles.heroGrid}>
 
-                    {/* Carousel */}
-                    <div className={styles.heroCarosel} ref={emblaRef}>
+                    {/* Carousel ni */}
+                    <div
+                        className={styles.heroCarosel}
+                        ref={emblaRef}
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                    >
                         <div className={styles.emblaContainer}>
                             {images.map((src, index) => (
                                 <div className={styles.emblaSlide} key={index}>
@@ -37,7 +55,7 @@ const HeroSection = () => {
                         </div>
                     </div>
 
-                    {/* Right side on desktop */}
+                    {/* Right side sa carosel */}
                     <div className={styles.bentoBox}>
                         <div className={`${styles.box} p-4 lg:p-8 flex items-end uppercase text-5xl font-bold italic`}>
                             Network
