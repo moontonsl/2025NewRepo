@@ -1,21 +1,15 @@
 import styles from "./HeroSection.module.scss"
-import HeroCarousel from "./Carousel/HeroCarousel.jsx";
-import EmblaCarousel from "@/components/EmblaCarousel/EmblaCarousel.jsx";
+import HeroCarousel from "./HeroCarousel.jsx";
 
 const HeroSection = () => {
-    const OPTIONS = {loop: true}
-    const SLIDE_COUNT = 5
-    const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
+
 
     return (
         <div className={styles.heroSection}>
             <div className={styles.heroWrapper}>
                 <div className={styles.heroGrid}>
-
                     {/* hero carousel */}
-                    {/*<HeroCarousel />*/}
-
-                    <EmblaCarousel slides={SLIDES} options={OPTIONS}/>
+                    <HeroCarousel />
 
                     {/* box sa right 3*/}
                     <div className={`${styles.bentoBox}`}>
