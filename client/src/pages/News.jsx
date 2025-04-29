@@ -44,7 +44,7 @@ const News = () => {
               >
                 <div className="relative">
                   <img
-                    src={`/assets/images/${news.news_img1}`}
+                    src={`https://mslphdatasheet.site/MSLNewsAssets/${news.news_img1}`}
                     alt={news.news_title}
                     className="w-full h-48 object-cover rounded-t-lg"
                   />
@@ -93,7 +93,7 @@ const News = () => {
           {featuredNews ? (
             <div>
               <img
-                src={`/assets/images/${featuredNews.news_img1}`}
+                src={`https://mslphdatasheet.site/MSLNewsAssets/${featuredNews.news_img1}`}
                 alt={featuredNews.news_title}
                 className="w-full h-48 object-cover rounded-lg mb-4"
               />
