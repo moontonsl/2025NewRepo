@@ -15,7 +15,7 @@ const News = () => {
         console.log("News data:", data);
         setNewsList(data);
 
-        
+        // Set the featured news randomly when the data is loaded
         const randomIndex = Math.floor(Math.random() * data.length);
         setFeaturedNews(data[randomIndex]);
       })
@@ -34,7 +34,7 @@ const News = () => {
     <div className=" text-gray-100 p-6 min-h-screen">
       <h1 className="text-4xl font-extrabold text-left mb-8">Latest News</h1>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-        
+        {/* Main News Section */}
         <div className="col-span-3 md:col-span-3 space-y-8">
           {newsList.length > 0 ? (
             newsList.map((news, idx) => (
@@ -88,6 +88,7 @@ const News = () => {
           )}
         </div>
 
+        {/* Featured News Section (on the right side) */}
         <div className="col-span-1 md:col-span-1 bg-gray-800 p-6 rounded-lg shadow-lg">
           <h2 className="text-2xl font-semibold mb-4 text-indigo-400">Featured News</h2>
           {featuredNews ? (
