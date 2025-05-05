@@ -57,32 +57,6 @@
       min-height: calc(100svh - #{map.get($hero-padding, xl)});
     }
 
-    .heroCarousel {
-      //position: relative;
-      //display: flex;
-      //flex-grow: 1;
-      //width: 100%;
-      //height: 100%;
-      //min-height: 400px;
-      //background: #4d0b0a;
-      //
-      //@media (min-width: 1024px) {
-      //  min-height: 600px;
-      //}
-
-
-      //img {
-      //  position: absolute;
-      //  top: 0;
-      //  left: 0;
-      //  object-fit: cover;
-      //  width: 100%;
-      //  height: 100%;
-      //}
-    }
-
-
-
     .bentoBox {
       display: flex;
       flex-direction: column;
