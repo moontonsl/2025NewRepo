@@ -7,6 +7,7 @@ const HeroSection = () => {
     return (
         <div className={styles.heroSection}>
             <div className={styles.heroWrapper}>
+
                 <div className={styles.heroGrid}>
                     {/* hero carousel */}
                     <HeroCarousel />
@@ -28,6 +29,7 @@ const HeroSection = () => {
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     )
