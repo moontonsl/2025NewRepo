@@ -41,25 +41,11 @@ const experienceItems = [
         description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
     },
-    {
-        img: "https://images.unsplash.com/photo-1504006833117-8886a355efbf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        title: "ON-SITE ESPORTS EXPERIENCE",
-        subtitle: "",
-        description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-    },
-    {
-        img: "https://images.unsplash.com/photo-1504006833117-8886a355efbf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        title: "ON-SITE ESPORTS EXPERIENCE",
-        subtitle: "",
-        description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-    },
 ];
 
 const ExperienceSection = () => {
     return (
-        <section className="py-24 bg-[#faf4e3] text-black ">
+        <section className="py-24 bg-[#FFBD30] text-black ">
             <div className="container mx-auto w-[90vw] relative overflow-hidden md:px-4">
                 <div className="text-center mb-10">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
@@ -80,7 +66,6 @@ const ExperienceSection = () => {
                     pagination={{clickable: true}}
                     navigation={true}
                     breakpoints={{
-                        1536: {slidesPerView: 5},
                         1280: {slidesPerView: 4},
                         1024: {slidesPerView: 3},
                         768: {slidesPerView: 2},
