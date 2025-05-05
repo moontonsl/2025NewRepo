@@ -14,9 +14,7 @@ const HeroCarousel = () => {
 
 
     return (
-        <div className={styles.heroCarousel}>
-            <EmblaCarousel slides={SLIDES} options={OPTIONS}/>
-        </div>
+        <EmblaCarousel slides={SLIDES} options={OPTIONS}/>
     );
 };
 
