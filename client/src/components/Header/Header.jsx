@@ -1,13 +1,16 @@
-import {useState} from 'react';
-import {Link} from 'react-router-dom';
-import {Menu} from 'lucide-react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Menu } from 'lucide-react';
 import styles from './Header.module.scss';
 
+// Navigation links array
 const navLinks = [
-    {name: 'Events', path: '/events'},
-    {name: 'News', path: '/news'},
-    {name: 'Program', path: '/program'},
-    {name: 'Resources', path: '/resources'},
+    { name: 'Events', path: '/events' },
+    { name: 'News', path: '/news' },
+    { name: 'Program', path: '/program' },
+    { name: 'Resources', path: '/resources' },
+    { name: 'Sign In', path: '/login' },
+    { name: 'Register', path: '/register' },
 ];
 
 const Header = () => {
@@ -21,22 +24,29 @@ const Header = () => {
                         className={styles.menuButton}
                         onClick={() => setIsMenuOpen((prev) => !prev)}
                     >
-                        <Menu size={24}/>
+                        <Menu size={24} />
                     </button>
                     <div className={styles.logo}>
                         <Link to="/">
-                            <img src="/msl-logo.png" alt="MSL Logo"/>
+                            <img src="/msl-logo.png" alt="MSL Logo" />
                         </Link>
                     </div>
                 </div>
 
                 <nav className={`${styles.nav} ${isMenuOpen ? styles.open : ''}`}>
                     <ul>
-                        {navLinks.map(({name, path}) => (
+                        {navLinks.map(({ name, path }) => (
                             <li key={name}>
-                                <Link to={path} onClick={() => setIsMenuOpen(false)}>
-                                    {name}
-                                </Link>
+                                {/* The "Log in" button now navigates to the login page */}
+                                {name === 'Log in' ? (
+                                    <Link to={path} onClick={() => setIsMenuOpen(false)}>
+                                        {name}
+                                    </Link>
+                                ) : (
+                                    <Link to={path} onClick={() => setIsMenuOpen(false)}>
+                                        {name}
+                                    </Link>
+                                )}
                             </li>
                         ))}
                     </ul>
@@ -48,9 +58,6 @@ const Header = () => {
                         alt="User avatar"
                     />
                 </div>
-
-
-
             </div>
         </header>
     );

@@ -1,5 +1,5 @@
 import {Routes, Route} from 'react-router-dom';
-import {Events, Home, News, Program, Resources} from '../pages';
+import { Events, Home, News, Program, Resources, Login, Register } from '../pages';
 
 const AppRoutes = () => (
     <Routes>
@@ -8,6 +8,8 @@ const AppRoutes = () => (
         <Route path="/news" element={<News/>}/>
         <Route path="/program" element={<Program/>}/>
         <Route path="/resources" element={<Resources/>}/>
+        <Route path="/login" element={<Login/>} />
+        <Route path="/register" element={<Register/>} />
 
 
         {/*<Route path="/network" element={<NetworkPage/>}/>*/}
