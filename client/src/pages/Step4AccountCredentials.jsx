@@ -89,7 +89,7 @@ const Step4AccountCredentials = ({ formData, handleInputChange, handleSubmit }) 
                         </div>
                     </div>
 
-                    {/* Captcha */}
+                    {/* Captcha */}<br></br>
                     <div className="form-row-register">
                         <div className="input-group-register full-width-register captcha-row" style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
                             <input

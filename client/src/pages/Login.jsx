@@ -70,8 +70,7 @@ const Login = () => {
                         </button>
                     </div>
                 </div>
-            </form>
-            <div className="footer-container-login">
+                <div className="footer-container-login">
                 <button type="submit" className="login-btn-login">
                     Login
                 </button>
@@ -80,6 +79,7 @@ const Login = () => {
                     Already have an account? <a href="/register" className="sign-in-link-login">Sign Up</a>
                 </p>
             </div>
+            </form>
         </div>
       </div>
     );

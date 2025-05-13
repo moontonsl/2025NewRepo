@@ -24,7 +24,7 @@
   font-weight: bold;
   margin-bottom: 1.5rem;
 }
-
+nice
 /* Image Container */
 .image-container-login {
   text-align: center;
@@ -100,7 +100,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1.5rem;
 }
 
 .footer-text-login {
@@ -116,4 +115,45 @@
 
 .forgot-password-link-login:hover, .sign-in-link-login:hover {
   text-decoration: underline;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-container-login {
+    margin: 50px 20px;
+    padding: 1rem;
+  }
+
+  .title-login {
+    font-size: 2rem;
+  }
+
+  .image-logo-login {
+    max-width: 180px;
+  }
+
+  .login-btn-login {
+    width: 70%;
+  }
+}
+
+@media (max-width: 480px) {
+  .title-login {
+    font-size: 1.5rem;
+  }
+
+  .input-field-login {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .login-btn-login {
+    width: 90%;
+    padding: 0.75rem;
+  }
+
+  .image-logo-login {
+    max-width: 140px;
+  }
 }
