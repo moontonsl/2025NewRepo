@@ -1,5 +1,5 @@
 // Step3GameDetails.jsx
-const Step3GameDetails = ({ formData, handleInputChange, handleSubmit }) => {
+const Step3GameDetails = ({ formData, handleInputChange, handleSubmit, errorMessage }) => {
     return (
         <>
             <div className="form-container-register">
@@ -15,6 +15,8 @@ const Step3GameDetails = ({ formData, handleInputChange, handleSubmit }) => {
                                 type="text"
                                 id="userId"
                                 name="userId"
+                                inputMode="numeric"
+                                pattern="\d*"
                                 value={formData.userId}
                                 onChange={handleInputChange}
                                 className="input-field-register"
@@ -27,6 +29,8 @@ const Step3GameDetails = ({ formData, handleInputChange, handleSubmit }) => {
                                 type="text"
                                 id="serverId"
                                 name="serverId"
+                                inputMode="numeric"
+                                pattern="\d*"
                                 value={formData.serverId}
                                 onChange={handleInputChange}
                                 className="input-field-register"
@@ -44,8 +48,7 @@ const Step3GameDetails = ({ formData, handleInputChange, handleSubmit }) => {
                                 type="text"
                                 id="ign"
                                 name="ign"
-                                value={formData.ign}
-                                onChange={handleInputChange}
+                                value="THISISMYAUTOMATEDIGN"
                                 className="input-field-register"
                                 readOnly
                             />
@@ -90,7 +93,7 @@ const Step3GameDetails = ({ formData, handleInputChange, handleSubmit }) => {
                                 className="input-field-register current-rank-select"
                                 required
                             >
-                                <option value="">Select Ranking</option>
+                                <option value="" disabled>Select Ranking</option>
                                 <option value="Warrior">Warrior</option>
                                 <option value="Elite">Elite</option>
                                 <option value="Master">Master</option>
@@ -115,7 +118,7 @@ const Step3GameDetails = ({ formData, handleInputChange, handleSubmit }) => {
                                 className="input-field-register in-game-role-select"
                                 required
                             >
-                                <option value="">Select Role</option>
+                                <option value="" disabled>Select Role</option>
                                 <option value="Tank">Tank</option>
                                 <option value="Support">Support</option>
                                 <option value="Marksman">Marksman</option>
@@ -134,7 +137,7 @@ const Step3GameDetails = ({ formData, handleInputChange, handleSubmit }) => {
                                 className="input-field-register main-hero-select"
                                 required
                             >
-                                <option value="">Select Hero</option>
+                                <option value="" disabled>Select Hero</option>
                                 <option value="Aamon">Aamon</option>
                                 <option value="Akai">Akai</option>
                                 <option value="Aldous">Aldous</option>
@@ -260,6 +263,7 @@ const Step3GameDetails = ({ formData, handleInputChange, handleSubmit }) => {
                                 type="file"
                                 id="proofOfRank"
                                 name="proofOfRank"
+                                accept=".jpg,.jpeg,.png"
                                 onChange={handleInputChange}
                                 className="input-field-register file-input"
                                 required

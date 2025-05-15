@@ -3,35 +3,26 @@ import Step1BasicDetails from './Step1BasicDetails';
 import Step2EducationDetails from './Step2EducationDetails';
 import Step3GameDetails from './Step3GameDetails';
 import Step4AccountCredentials from './Step4AccountCredentials';
-import '../styles/register.css'; // Import the CSS file
+import '../styles/register.css';
+
+const initialFormData = {
+    // Step 1
+    firstName: '', lastName: '', suffix: '', birthday: '', age: '', gender: '', contactNo: '', facebookLink: '',
+    // Step 2
+    yearLevel: '', university: '', island: '', region: '', studentId: '', course: '', proofOfEnrollment: null,
+    // Step 3
+    userId: '', serverId: '', ign: '', squadName: '', squadAbbreviation: '', rank: '', inGameRole: '', mainHero: '', proofOfRank: null,
+    // Step 4
+    username: '', password: '', confirmPassword: '', email: '', captcha: ''
+};
+
+const fileTypeIsValid = (file, allowedTypes) =>
+    file && allowedTypes.includes(file.type);
 
 const Register = () => {
     const [currentStep, setCurrentStep] = useState(1);
-    const [formData, setFormData] = useState({
-        // Step 1 - Basic Details
-        firstName: '', lastName: '', suffix: '', birthday: '', age: '', gender: '', contactNo: '', facebookLink: '',
-        // Step 2 - Education Details
-        yearLevel: '', university: '', island: '', region: '', studentId: '', course: '', proofOfEnrollment: null,
-        // Step 3 - Game Details
-        userId: '', serverId: '', ign: '', squadName: '', squadAbbreviation: '', currentRank: '', inGameRole: '', mainHero: '',
-        // Step 4 - Credentials
-        username: '', password: '', confirmPassword: '', email: '', captcha: ''
-    });
+    const [formData, setFormData] = useState(initialFormData);
     const [errorMessage, setErrorMessage] = useState("");
-
-    const handleNext = () => {
-        // First, validate the current step before moving to the next one
-        if (!isFormValid()) {
-            setErrorMessage("⚠️ Please fill in all the required fields.");
-            return; // Do not move to next step
-        }
-        setErrorMessage(""); // Clear error message
-        if (currentStep < 4) setCurrentStep(prev => prev + 1);
-    };
-
-    const handlePrev = () => {
-        if (currentStep > 1) setCurrentStep(prev => prev - 1);
-    };
 
     const handleInputChange = (e) => {
         const { name, value, type, files } = e.target;
@@ -41,39 +32,99 @@ const Register = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Submitted:', formData);
+    const handleNext = () => {
+        if (!isFormValid(currentStep)) return;
+        setErrorMessage("");
+        setCurrentStep(prev => Math.min(prev + 1, 4));
     };
 
-    const isFormValid = () => {
-        const currentStepData = formData;
-        switch (currentStep) {
+    const handlePrev = () => {
+        setCurrentStep(prev => Math.max(prev - 1, 1));
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!isFormValid(currentStep)) return;
+        setErrorMessage("");
+        window.alert("Account created successfully");
+        // Optionally reset form or redirect here
+    };
+
+    function isFormValid(step) {
+        // Helper for required fields
+        const requireFields = (fields) =>
+            fields.every(f => (formData[f] && formData[f].toString().trim() !== ""));
+
+        switch (step) {
             case 1:
-                return currentStepData.firstName && currentStepData.lastName && currentStepData.suffix &&
-                    currentStepData.gender && currentStepData.birthday && currentStepData.contactNo &&
-                    currentStepData.facebookLink;
-            case 2:
-                return currentStepData.yearLevel && currentStepData.university && currentStepData.island &&
-                    currentStepData.region && currentStepData.studentId && currentStepData.course &&
-                    currentStepData.proofOfEnrollment;
-            case 3:
-                return currentStepData.userId && currentStepData.serverId && currentStepData.ign &&
-                    currentStepData.squadName && currentStepData.squadAbbreviation && currentStepData.currentRank &&
-                    currentStepData.inGameRole && currentStepData.mainHero;
-            case 4:
-                return currentStepData.username && currentStepData.password && currentStepData.confirmPassword &&
-                    currentStepData.captcha;
+                if (!requireFields(['firstName', 'lastName', 'gender', 'birthday', 'age', 'contactNo', 'facebookLink'])) {
+                    setErrorMessage("⚠️ Please fill in all the required fields.");
+                    return false;
+                }
+                break;
+            case 2: {
+                const required = ['yearLevel', 'university', 'island', 'region', 'studentId', 'course', 'proofOfEnrollment'];
+                if (!requireFields(required)) {
+                    setErrorMessage("⚠️ Please fill in all the required fields.");
+                    return false;
+                }
+                const allowedTypes = ["image/jpeg", "image/png", "image/jpg", "application/pdf"];
+                if (!fileTypeIsValid(formData.proofOfEnrollment, allowedTypes)) {
+                    setErrorMessage("⚠️ File must be an image (jpg, jpeg, png) or PDF.");
+                    return false;
+                }
+                break;
+            }
+            case 3: {
+                const required = ['userId', 'serverId', 'squadName', 'squadAbbreviation', 'rank', 'inGameRole', 'mainHero', 'proofOfRank'];
+                if (!requireFields(required)) {
+                    setErrorMessage("⚠️ Please fill in all the required fields.");
+                    return false;
+                }
+                const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
+                if (!fileTypeIsValid(formData.proofOfRank, allowedTypes)) {
+                    setErrorMessage("⚠️ Proof of Rank must be an image (jpg, jpeg, png).");
+                    return false;
+                }
+                break;
+            }
+            case 4: {
+                const { username, password, confirmPassword, email, captcha } = formData;
+                if (!requireFields(['username', 'password', 'confirmPassword', 'email', 'captcha'])) {
+                    setErrorMessage("⚠️ Please fill in all the required fields.");
+                    return false;
+                }
+                if (password !== confirmPassword) {
+                    setErrorMessage("⚠️ Passwords do not match.");
+                    return false;
+                }
+                if (captcha !== "1234") {
+                    setErrorMessage("⚠️ Incorrect code.");
+                    return false;
+                }
+                break;
+            }
             default:
+                setErrorMessage("⚠️ Invalid step.");
                 return false;
         }
+        setErrorMessage("");
+        return true;
+    }
+
+    const stepProps = {
+        formData,
+        handleInputChange,
+        errorMessage,
+        setErrorMessage,
+        handleSubmit
     };
 
     const stepComponents = {
-        1: <Step1BasicDetails formData={formData} handleInputChange={handleInputChange} setErrorMessage={setErrorMessage} />,
-        2: <Step2EducationDetails formData={formData} handleInputChange={handleInputChange} setErrorMessage={setErrorMessage} />,
-        3: <Step3GameDetails formData={formData} handleInputChange={handleInputChange} setErrorMessage={setErrorMessage} />,
-        4: <Step4AccountCredentials formData={formData} handleInputChange={handleInputChange} setErrorMessage={setErrorMessage} />
+        1: <Step1BasicDetails {...stepProps} />,
+        2: <Step2EducationDetails {...stepProps} />,
+        3: <Step3GameDetails {...stepProps} />,
+        4: <Step4AccountCredentials {...stepProps} />
     };
 
     return (
@@ -82,7 +133,7 @@ const Register = () => {
                 {stepComponents[currentStep]}
 
                 {errorMessage && (
-                    <div className="error-message-box">
+                    <div className="error-message">
                         <p>{errorMessage}</p>
                     </div>
                 )}
@@ -94,12 +145,7 @@ const Register = () => {
                         </button>
                     )}
                     {currentStep < 4 ? (
-                        <button
-                            type="button"
-                            onClick={handleNext}
-                            className="register-btn"
-                            disabled={!isFormValid()}
-                        >
+                        <button type="button" onClick={handleNext} className="register-btn">
                             Next
                         </button>
                     ) : (
@@ -109,17 +155,14 @@ const Register = () => {
                     )}
                 </div>
 
-                {/* Footer text placed inside a div to center it */}
                 <div className="footer-container">
                     <p className="footer-text-login">
-                        Already have an account? <a href="/login" className="sign-in-link-login">Sign In</a>
+                        Already have an account? <a href="/login" className="sign-in-link-login">Login here</a>
                     </p>
                 </div>
-                <br />
             </form>
         </div>
     );
 };
-
 
 export default Register;

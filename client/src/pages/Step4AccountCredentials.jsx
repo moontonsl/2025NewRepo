@@ -1,7 +1,11 @@
 import { useState } from "react";
-import { Eye, EyeOff } from "lucide-react"; // Add this line if you're using Lucide
+import { Eye, EyeOff } from "lucide-react";
 
-const Step4AccountCredentials = ({ formData, handleInputChange, handleSubmit }) => {
+const Step4AccountCredentials = ({
+    formData,
+    handleInputChange,
+    errorMessage
+}) => {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -10,7 +14,6 @@ const Step4AccountCredentials = ({ formData, handleInputChange, handleSubmit }) 
             <div className="form-container-register">
                 <h1 className="title-register">CREATE MSL ACCOUNT</h1>
 
-                {/* Logo */}
                 <div className="image-container-login">
                     <img 
                         src="msl-logo.png"
@@ -19,109 +22,122 @@ const Step4AccountCredentials = ({ formData, handleInputChange, handleSubmit }) 
                     />
                 </div>
 
-                <form className="form-register" onSubmit={handleSubmit}>
-                    {/* Username */}
-                    <div className="form-row-register">
-                        <div className="input-group-register full-width-register">
-                            <label htmlFor="username" className="label-register">Username<span className="required"> *</span></label>
+                {/* Username */}
+                <div className="form-row-register">
+                    <div className="input-group-register full-width-register">
+                        <label htmlFor="username" className="label-register">
+                            Username<span className="required"> *</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            value={formData.username}
+                            onChange={handleInputChange}
+                            className="input-field-register"
+                            placeholder="e.g. Simoun"
+                            required
+                        />
+                    </div>
+                </div>
+
+                {/* Password */}
+                <div className="form-row-register">
+                    <div className="input-group-register full-width-register">
+                        <label htmlFor="password" className="label-register">
+                            Create a password<span className="required"> *</span>
+                        </label>
+                        <div className="password-container">
                             <input
-                                type="text"
-                                id="username"
-                                name="username"
-                                value={formData.username}
+                                type={showPassword ? "text" : "password"}
+                                id="password"
+                                name="password"
+                                value={formData.password}
                                 onChange={handleInputChange}
                                 className="input-field-register"
-                                placeholder="e.g. Simoun"
+                                placeholder="must be 8 characters"
                                 required
                             />
+                            <button 
+                                type="button"
+                                className="eye-icon-login"
+                                onClick={() => setShowPassword(!showPassword)}
+                            >
+                                {showPassword ? <EyeOff size={24} /> : <Eye size={24} />}
+                            </button>
                         </div>
                     </div>
+                </div>
 
-                    {/* Password */}
-                    <div className="form-row-register">
-                        <div className="input-group-register full-width-register">
-                            <label htmlFor="password" className="label-register">Create a password<span className="required"> *</span></label>
-                            <div className="password-container">
-                                <input
-                                    type={showPassword ? "text" : "password"}
-                                    id="password"
-                                    name="password"
-                                    value={formData.password}
-                                    onChange={handleInputChange}
-                                    className="input-field-register"
-                                    placeholder="must be 8 characters"
-                                    required
-                                />
-                                <button 
-                                    type="button"
-                                    className="eye-icon-login"
-                                    onClick={() => setShowPassword(!showPassword)}
-                                >
-                                    {showPassword ? <EyeOff size={24} /> : <Eye size={24} />}
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Confirm Password */}
-                    <div className="form-row-register">
-                        <div className="input-group-register full-width-register">
-                            <label htmlFor="confirmPassword" className="label-register">Confirm password<span className="required"> *</span></label>
-                            <div className="password-container">
-                                <input
-                                    type={showConfirmPassword ? "text" : "password"}
-                                    id="confirmPassword"
-                                    name="confirmPassword"
-                                    value={formData.confirmPassword}
-                                    onChange={handleInputChange}
-                                    className="input-field-register"
-                                    placeholder="repeat password"
-                                    required
-                                />
-                                <button 
-                                    type="button"
-                                    className="eye-icon-login"
-                                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                                >
-                                    {showConfirmPassword ? <EyeOff size={24} /> : <Eye size={24} />}
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="form-row-register">
-                        <div className="input-group-register full-width-register">
-                            <label htmlFor="email" className="label-register">Email Address<span className="required"> *</span></label>
+                {/* Confirm Password */}
+                <div className="form-row-register">
+                    <div className="input-group-register full-width-register">
+                        <label htmlFor="confirmPassword" className="label-register">
+                            Confirm password<span className="required"> *</span>
+                        </label>
+                        <div className="password-container">
                             <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                value={formData.email}
+                                type={showConfirmPassword ? "text" : "password"}
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                value={formData.confirmPassword}
                                 onChange={handleInputChange}
                                 className="input-field-register"
-                                placeholder="e.g. crislbarra@gmail.com"
+                                placeholder="repeat password"
                                 required
                             />
+                            <button 
+                                type="button"
+                                className="eye-icon-login"
+                                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                            >
+                                {showConfirmPassword ? <EyeOff size={24} /> : <Eye size={24} />}
+                            </button>
                         </div>
                     </div>
-                    <div className="form-row-register">
-                        <div className="input-group-register full-width-register">
-                            <label htmlFor="email" className="label-register">Code <span className="required"> *</span></label>
-                            <input
-                                type="text"
-                                id="captcha"
-                                name="captcha"
-                                value={formData.captcha}
-                                onChange={handleInputChange}
-                                className="input-field-register captcha-input"
-                                placeholder="Enter the code"
-                                required
-                                style={{ flex: 3 }}
-                            />
-                        </div>
+                </div>
+
+                {/* Email */}
+                <div className="form-row-register">
+                    <div className="input-group-register full-width-register">
+                        <label htmlFor="email" className="label-register">
+                            Email Address<span className="required"> *</span>
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            className="input-field-register"
+                            placeholder="e.g. crislbarra@gmail.com"
+                            required
+                        />
                     </div>
-                </form>
+                </div>
+
+                {/* Code */}
+                <div className="form-row-register">
+                    <div className="input-group-register full-width-register">
+                        <label htmlFor="captcha" className="label-register">
+                            Code <span className="required"> *</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="captcha"
+                            name="captcha"
+                            value={formData.captcha}
+                            onChange={handleInputChange}
+                            className="input-field-register captcha-input"
+                            placeholder="Enter the code"
+                            required
+                            style={{ flex: 3 }}
+                        />
+                    </div>
+                </div>
             </div>
+
+
         </>
     );
 };

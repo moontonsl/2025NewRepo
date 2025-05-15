@@ -1,29 +1,33 @@
 import React from 'react';
 
-const Step1BasicDetails = ({ formData, handleInputChange, handleSubmit }) => {
-    const [errorMessage, setErrorMessage] = React.useState('');
+const Step1BasicDetails = ({ formData, handleInputChange, handleSubmit, setErrorMessage }) => {
+    const [localError, setLocalError] = React.useState('');
 
     const validateForm = () => {
+        // Prioritize contact number validation first
+        if (!/^09\d{9}$/.test(formData.contactNo)) {
+            setLocalError('⚠️ Invalid number. Must be 11 digits and start with 09.');
+            return false;
+        }
+
         const requiredFields = [
-            'firstName', 'lastName', 'suffix', 'gender', 
+            'firstName', 'lastName', 'gender',
             'birthday', 'age', 'contactNo', 'facebookLink'
         ];
 
-        // Check if any required field is empty
         for (let field of requiredFields) {
-            if (!formData[field] || formData[field].trim() === '') {
-            setErrorMessage('⚠️ Please fill all fields.');
-            return false;
+            if (!formData[field] || formData[field].toString().trim() === '') {
+                setLocalError('⚠️ Please fill in all the required fields.');
+                return false;
             }
         }
-        // If all fields are filled, reset error message
-        setErrorMessage('');
+
+        setLocalError('');
         return true;
     };
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-
         if (validateForm()) {
             handleSubmit(e);
         }
@@ -201,7 +205,7 @@ const Step1BasicDetails = ({ formData, handleInputChange, handleSubmit }) => {
                     </div>
                 </div>
 
-                {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Display error message */}
+                {localError && <p className="error-message">{localError}</p>}
             </form>
         </div>
     );
