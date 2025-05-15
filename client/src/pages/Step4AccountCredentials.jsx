@@ -89,9 +89,24 @@ const Step4AccountCredentials = ({ formData, handleInputChange, handleSubmit }) 
                         </div>
                     </div>
 
-                    {/* Captcha */}<br></br>
                     <div className="form-row-register">
-                        <div className="input-group-register full-width-register captcha-row" style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+                        <div className="input-group-register full-width-register">
+                            <label htmlFor="email" className="label-register">Email Address<span className="required"> *</span></label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                className="input-field-register"
+                                placeholder="e.g. crislbarra@gmail.com"
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div className="form-row-register">
+                        <div className="input-group-register full-width-register">
+                            <label htmlFor="email" className="label-register">Code <span className="required"> *</span></label>
                             <input
                                 type="text"
                                 id="captcha"
@@ -99,13 +114,10 @@ const Step4AccountCredentials = ({ formData, handleInputChange, handleSubmit }) 
                                 value={formData.captcha}
                                 onChange={handleInputChange}
                                 className="input-field-register captcha-input"
-                                placeholder="Enter the captcha"
+                                placeholder="Enter the code"
                                 required
                                 style={{ flex: 3 }}
                             />
-                            <span className="captcha-icon" style={{ flex: 1, fontSize: "2rem", textAlign: "center" }}>
-                                🐱
-                            </span>
                         </div>
                     </div>
                 </form>

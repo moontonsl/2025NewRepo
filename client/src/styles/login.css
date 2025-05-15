@@ -62,6 +62,11 @@ nice
   font-size: 1rem;
 }
 
+.input-field-login:focus {
+  border: 1px solid #e0b90f;
+  outline: none;
+}
+
 /* Password Container */
 .password-container-login {
   position: relative;
@@ -93,8 +98,9 @@ nice
 }
 
 .login-btn-login:hover {
-  background-color: #4a80b2;
+  background-color: #e0b90f;
 }
+
 
 .footer-container-login {
   display: flex;
