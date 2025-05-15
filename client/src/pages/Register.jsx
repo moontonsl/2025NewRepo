@@ -11,7 +11,7 @@ const initialFormData = {
     // Step 2
     yearLevel: '', university: '', island: '', region: '', studentId: '', course: '', proofOfEnrollment: null,
     // Step 3
-    userId: '', serverId: '', ign: '', squadName: '', squadAbbreviation: '', rank: '', inGameRole: '', mainHero: '', proofOfRank: null,
+    userId: '', serverId: '', ign: '', squadName: '', squadAbbreviation: '', rank: '', inGameRole: '', mainHero: '',
     // Step 4
     username: '', password: '', confirmPassword: '', email: '', captcha: ''
 };
@@ -76,14 +76,9 @@ const Register = () => {
                 break;
             }
             case 3: {
-                const required = ['userId', 'serverId', 'squadName', 'squadAbbreviation', 'rank', 'inGameRole', 'mainHero', 'proofOfRank'];
+                const required = ['userId', 'serverId', 'squadName', 'squadAbbreviation', 'rank', 'inGameRole', 'mainHero'];
                 if (!requireFields(required)) {
                     setErrorMessage("⚠️ Please fill in all the required fields.");
-                    return false;
-                }
-                const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
-                if (!fileTypeIsValid(formData.proofOfRank, allowedTypes)) {
-                    setErrorMessage("⚠️ Proof of Rank must be an image (jpg, jpeg, png).");
                     return false;
                 }
                 break;
@@ -92,6 +87,10 @@ const Register = () => {
                 const { username, password, confirmPassword, email, captcha } = formData;
                 if (!requireFields(['username', 'password', 'confirmPassword', 'email', 'captcha'])) {
                     setErrorMessage("⚠️ Please fill in all the required fields.");
+                    return false;
+                }
+                if (password.length < 8) {
+                    setErrorMessage("⚠️ Password must be at least 8 characters.");
                     return false;
                 }
                 if (password !== confirmPassword) {

@@ -252,24 +252,6 @@ const Step3GameDetails = ({ formData, handleInputChange, handleSubmit, errorMess
                             </select>
                         </div>
                     </div>
-
-                    {/* Proof of Rank */}
-                    <div className="form-row-register">
-                        <div className="input-group-register full-width-register">
-                            <label htmlFor="proofOfRank" className="label-register">
-                                Proof of Rank (Screenshot)<span className="required"> *</span>
-                            </label>
-                            <input
-                                type="file"
-                                id="proofOfRank"
-                                name="proofOfRank"
-                                accept=".jpg,.jpeg,.png"
-                                onChange={handleInputChange}
-                                className="input-field-register file-input"
-                                required
-                            />
-                        </div>
-                    </div>
                 </form>
             </div>
         </>
