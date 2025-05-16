@@ -127,7 +127,11 @@ const Register = () => {
     };
 
     return (
-        <div className="register-container">
+        <div className={
+            currentStep === 4
+                ? `form-container-register-step4${errorMessage ? ' has-error' : ''}`
+                : `form-container-register${errorMessage ? ' has-error' : ''}`
+        }>
             <form onSubmit={handleSubmit} className="form-register">
                 {stepComponents[currentStep]}
 
@@ -154,8 +158,8 @@ const Register = () => {
                     )}
                 </div>
 
-                <div className="footer-container">
-                    <p className="footer-text-login">
+                <div className="footer-container-register">
+                    <p className="footer-text-register">
                         Already have an account? <a href="/login" className="sign-in-link-login">Login here</a>
                     </p>
                 </div>

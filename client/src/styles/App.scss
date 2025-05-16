@@ -24,10 +24,16 @@
   }
 
   main {
-    grid-area: main;
-    min-height: calc(100svh - 56px);
-    background-image: url('webbg2025.png'); /* Replace with the actual image path */
-  }
+  grid-area: main;
+  min-height: calc(100svh - 56px);
+  background-image: url('webbg2025.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
   footer {
     grid-area: footer;

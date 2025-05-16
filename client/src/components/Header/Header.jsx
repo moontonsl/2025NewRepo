@@ -3,14 +3,12 @@ import { Link } from 'react-router-dom';
 import { Menu } from 'lucide-react';
 import styles from './Header.module.scss';
 
-// Navigation links array
+// Navigation links array (only main nav links)
 const navLinks = [
     { name: 'Events', path: '/events' },
     { name: 'News', path: '/news' },
     { name: 'Program', path: '/program' },
     { name: 'Resources', path: '/resources' },
-    { name: 'Sign In', path: '/login' },
-    { name: 'Register', path: '/register' },
 ];
 
 const Header = () => {
@@ -19,6 +17,7 @@ const Header = () => {
     return (
         <header className={styles.header}>
             <div className={styles.container}>
+                
                 <div className={styles.menuButtons}>
                     <button
                         className={styles.menuButton}
@@ -34,30 +33,32 @@ const Header = () => {
                 </div>
 
                 <nav className={`${styles.nav} ${isMenuOpen ? styles.open : ''}`}>
-                    <ul>
+                    <ul className={styles.navList}>
                         {navLinks.map(({ name, path }) => (
                             <li key={name}>
-                                {/* The "Log in" button now navigates to the login page */}
-                                {name === 'Log in' ? (
-                                    <Link to={path} onClick={() => setIsMenuOpen(false)}>
-                                        {name}
-                                    </Link>
-                                ) : (
-                                    <Link to={path} onClick={() => setIsMenuOpen(false)}>
-                                        {name}
-                                    </Link>
-                                )}
+                                <Link to={path} onClick={() => setIsMenuOpen(false)}>
+                                    {name}
+                                </Link>
                             </li>
                         ))}
                     </ul>
+                    <div className={styles.authButtons}>
+                        <Link
+                            to="/login"
+                            className={styles.signInBtn}
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            Sign In
+                        </Link>
+                        <Link
+                            to="/register"
+                            className={styles.registerBtn}
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            Register
+                        </Link>
+                    </div>
                 </nav>
-
-                <div className={styles.headerAuth}>
-                    <img
-                        src="https://tiermaker.com/images/chart/chart/mobile-legends-bang-bang-characters-2021-978637/17fannypng.png"
-                        alt="User avatar"
-                    />
-                </div>
             </div>
         </header>
     );
