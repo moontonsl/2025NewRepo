@@ -22,7 +22,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.username || !formData.password) {
-      setError('⚠️ Please input username and password details.');
+      setError('⚠️Please enter account details.');
       return;
     }
     // Simulate login error for demonstration

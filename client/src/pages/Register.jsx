@@ -39,6 +39,7 @@ const Register = () => {
     };
 
     const handlePrev = () => {
+        setErrorMessage(""); // Clear error when going to previous step
         setCurrentStep(prev => Math.max(prev - 1, 1));
     };
 

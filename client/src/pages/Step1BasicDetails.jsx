@@ -118,7 +118,7 @@ const Step1BasicDetails = ({
         <div className="form-row-register">
           <div className="input-group-register left-side-register">
             <label htmlFor="suffix" className="label-register">
-              Suffix<span className="required"> *</span>
+              Suffix
             </label>
             <select
               id="suffix"
@@ -126,7 +126,6 @@ const Step1BasicDetails = ({
               value={formData.suffix}
               onChange={handleInputChange}
               className="input-field-register suffix-select"
-              required
             >
               <option value=""></option>
               <option value="Jr">Jr</option>

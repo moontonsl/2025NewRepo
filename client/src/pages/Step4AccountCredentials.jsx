@@ -132,7 +132,7 @@ const Step4AccountCredentials = ({
             />
             <button
               type="button"
-              className="register-btn"
+              className="register-btn-sendcode"
               style={{ flex: 1, minWidth: 0 }}
               onClick={handleSendCode}
               disabled={timer > 0 || !formData.email}
