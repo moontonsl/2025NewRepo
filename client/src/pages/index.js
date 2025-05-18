@@ -6,3 +6,5 @@ export { default as Program } from './Program';
 export { default as Resources } from './Resources';
 export { default as Login } from './Login'; //
 export { default as Register } from './Register'; //
+export { default as MCCMAIN } from './MCC/MCCMAIN';
+export { default as MCCCALENDARFINAL } from './MCC/MCCCALENDARFINAL';
