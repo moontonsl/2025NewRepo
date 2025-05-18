@@ -37,7 +37,8 @@ export default function MCCMAINPage() {
               <Img src={item.image} alt={item.alt} className="sm:w-[300px] sm:h-[300px] object-contain" />
             </Link>
           ))}
-        </div>
+        </div
+
 
         {/* Mobile nav */}
         {/*<div className="md:hidden w-full">*/}
