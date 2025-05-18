@@ -1,11 +1,16 @@
+.register-wrapper {
+    background-image: url('webbg2025.png');
+    /*height: 100%;*/
+}
+
 .register-container {
-  max-width: 600px;
-  margin: 100px auto; 
-  padding: 1rem;
-  background-color: #0A0A0A;
-  border-radius: 8px;
-  border: 1px solid white; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 1rem;
+    background-color: #0A0A0A;
+    border-radius: 8px;
+    border: 1px solid white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -55,24 +60,24 @@
 }
 
 .input-field-register {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  appearance: none; /* Remove default dropdown styling */
-  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJNNC4yOTMgNi4yOTNsMy43MDcgMy43MDcgMy43MDctMy43MDdhMSAxIDAgMCAxIDEuNDE0IDEuNDE0bC00LjQxNCA0LjQxNGExIDEgMCAwIDEtMS40MTQgMGwtNC40MTQtNC40MTRhMSAxIDAgMSAxIDEuNDE0LTEuNDE0eiIgZmlsbD0iIzAwMCIvPjwvc3ZnPg==') no-repeat right 10px center; /* Custom dropdown icon */
-  background-size: 12px; /* Adjust icon size */
-  padding-right: 2rem; /* Add space for the icon */
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    appearance: none; /* Remove default dropdown styling */
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJNNC4yOTMgNi4yOTNsMy43MDcgMy43MDcgMy43MDctMy43MDdhMSAxIDAgMCAxIDEuNDE0IDEuNDE0bC00LjQxNCA0LjQxNGExIDEgMCAwIDEtMS40MTQgMGwtNC40MTQtNC40MTRhMSAxIDAgMSAxIDEuNDE0LTEuNDE0eiIgZmlsbD0iIzAwMCIvPjwvc3ZnPg==') no-repeat right 10px center; /* Custom dropdown icon */
+    background-size: 12px; /* Adjust icon size */
+    padding-right: 2rem; /* Add space for the icon */
 }
 
 /* Style the calendar icon */
 .input-field-register[type="date"]::-webkit-calendar-picker-indicator {
-  background-color: transparent; /* Ensure background is transparent */
-  color: white; /* Change the calendar icon color to white */
-  filter: invert(1); /* Inverts the icon color to white */
-  margin-right: -20px; /* Push it slightly to the left */
-  cursor: pointer;
+    background-color: transparent; /* Ensure background is transparent */
+    color: white; /* Change the calendar icon color to white */
+    filter: invert(1); /* Inverts the icon color to white */
+    margin-right: -20px; /* Push it slightly to the left */
+    cursor: pointer;
 }
 
 .input-field-register:focus {
@@ -85,33 +90,33 @@
 .input-field-register.year-level-select,
 .input-field-register.current-rank-select,
 .input-field-register.in-game-role-select,
-.input-field-register.main-hero-select{
-  appearance: none;
-  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJNNC4yOTMgNi4yOTNsMy43MDcgMy43MDcgMy43MDctMy43MDdhMSAxIDAgMCAxIDEuNDE0IDEuNDE0bC00LjQxNCA0LjQxNGExIDEgMCAwIDEtMS40MTQgMGwtNC40MTQtNC40MTRhMSAxIDAgMSAxIDEuNDE0LTEuNDE0eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==") no-repeat right 16px center;
-  background-color: transparent;
-  background-size: 12px;
-  padding-right: 5rem;
-  color: white;
-  border-color: white;
-  cursor: pointer;
+.input-field-register.main-hero-select {
+    appearance: none;
+    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJNNC4yOTMgNi4yOTNsMy43MDcgMy43MDcgMy43MDctMy43MDdhMSAxIDAgMCAxIDEuNDE0IDEuNDE0bC00LjQxNCA0LjQxNGExIDEgMCAwIDEtMS40MTQgMGwtNC40MTQtNC40MTRhMSAxIDAgMSAxIDEuNDE0LTEuNDE0eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==") no-repeat right 16px center;
+    background-color: transparent;
+    background-size: 12px;
+    padding-right: 5rem;
+    color: white;
+    border-color: white;
+    cursor: pointer;
 }
 
 .input-field-register option,
 .input-field-register.suffix-select option
-.input-field-register.year-level-select option 
+.input-field-register.year-level-select option
 .input-field-register.current-rank-select option
 .input-field-register.in-game-role-select option
-.input-field-register.main-hero-select option{
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
+.input-field-register.main-hero-select option {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
 }
 
 
-.footer-container{
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  text-align: center; /* Ensure text is centered */
+.footer-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center; /* Ensure text is centered */
 }
 
 /* Flexbox container for navigation buttons */
@@ -143,12 +148,12 @@
 .footer-container-register {
     display: flex;
     flex-direction: column;
-    align-items: center;  /* Center horizontally */
+    align-items: center; /* Center horizontally */
     justify-content: center; /* Center vertically if needed */
 }
 
 .footer-text-register {
-    text-align: center;  /* Center the text */
+    text-align: center; /* Center the text */
 }
 
 
@@ -162,7 +167,7 @@
 }
 
 .required {
-  color: #f47764;
+    color: #f47764;
 }
 
 .file-input {
@@ -191,24 +196,24 @@
 }
 
 .password-container {
-  position: relative;
-  display: flex;
-  align-items: center;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .eye-icon-login {
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
 }
 
 .eye-icon-login svg {
-  stroke: white; /* Ensure it's visible on dark background */
+    stroke: white; /* Ensure it's visible on dark background */
 }
 
 

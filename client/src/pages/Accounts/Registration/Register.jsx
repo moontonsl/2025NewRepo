@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import Step1BasicDetails from './Step1BasicDetails';
-import Step2EducationDetails from './Step2EducationDetails';
-import Step3GameDetails from './Step3GameDetails';
-import Step4AccountCredentials from './Step4AccountCredentials';
+import Step1BasicDetails from '@/pages/Accounts/components/Step1BasicDetails.jsx';
+import Step2EducationDetails from '@/pages/Accounts/components/Step2EducationDetails.jsx';
+import Step3GameDetails from '@/pages/Accounts/components/Step3GameDetails.jsx';
+import Step4AccountCredentials from '@/pages/Accounts/components/Step4AccountCredentials.jsx';
 import '../styles/register.css'; // Import the CSS file
 
 const Register = () => {
@@ -51,34 +51,36 @@ const Register = () => {
     };
 
     return (
-        <div className="register-container">
-            <form onSubmit={handleSubmit} className="form-register">
-                {stepComponents[currentStep]}
+        <div className="register-wrapper">
+            <div className="register-container">
+                <form onSubmit={handleSubmit} className="form-register">
+                    {stepComponents[currentStep]}
 
-                <div className="navigation-buttons">
-                    {currentStep > 1 && (
-                        <button type="button" onClick={handlePrev} className="register-btn">
-                            Prev
-                        </button>
-                    )}
-                    {currentStep < 4 ? (
-                        <button type="button" onClick={handleNext} className="register-btn">
-                            Next
-                        </button>
-                    ) : (
-                        <button type="submit" className="register-btn">
-                            Submit
-                        </button>
-                    )}
-                </div>
+                    <div className="navigation-buttons">
+                        {currentStep > 1 && (
+                            <button type="button" onClick={handlePrev} className="register-btn">
+                                Prev
+                            </button>
+                        )}
+                        {currentStep < 4 ? (
+                            <button type="button" onClick={handleNext} className="register-btn">
+                                Next
+                            </button>
+                        ) : (
+                            <button type="submit" className="register-btn">
+                                Submit
+                            </button>
+                        )}
+                    </div>
 
-                {/* Footer text placed inside a div to center it */}
-                <div className="footer-container">
-                    <p className="footer-text-login">Already have an account? <a href="/login" className="sign-in-link-login">Sign In</a>
-                    </p>
-                </div>
-                <br></br>
-            </form>
+                    {/* Footer text placed inside a div to center it */}
+                    <div className="footer-container">
+                        <p className="footer-text-login">Already have an account? <a href="/client/src/pages/Accounts/Login/Login" className="sign-in-link-login">Sign In</a>
+                        </p>
+                    </div>
+                    <br></br>
+                </form>
+            </div>
         </div>
     );
 };

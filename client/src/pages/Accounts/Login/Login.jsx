@@ -77,7 +77,7 @@ const Login = () => {
                 </button>
                 <p className="footer-text-login">
                     <a href="/forgot-password" className="forgot-password-link-login">Forgot Password</a><br />
-                    Already have an account? <a href="/register" className="sign-in-link-login">Sign Up</a>
+                    Already have an account? <a href="/client/src/pages/Accounts/Registration/Register" className="sign-in-link-login">Sign Up</a>
                 </p>
             </div>
         </div>
