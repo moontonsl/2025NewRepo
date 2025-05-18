@@ -88,18 +88,15 @@
     display: flex;
     touch-action: pan-y pinch-zoom;
     margin-left: calc(var(--slide-spacing) * -1);
-    min-height: 400px;
+    min-height: calc(100vh - 187px);
 
     @media (min-width: 1024px) {
-        min-height: 624px;
+        min-height: calc(100vh - 187px);
     }
 
     @media (min-width: 1536px) {
-        min-height: 792px;
+        min-height: calc(100vh - 187px);
     }
-
-
-
 }
 
 .embla__slide {

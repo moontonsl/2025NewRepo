@@ -45,7 +45,7 @@ const experienceItems = [
 
 const ExperienceSection = () => {
     return (
-        <section className="py-16 bg-[#FFBD30] text-black">
+        <section className="py-10 bg-[#FFBD30] text-black">
             <div className="container mx-auto w-[90vw] relative overflow-hidden md:px-4">
                 <div className="text-center mb-10">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
@@ -53,8 +53,7 @@ const ExperienceSection = () => {
                     </h2>
                     <p className="max-w-2xl mx-auto mt-4 text-sm md:text-base">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices
-                        gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
+                        incididunt ut labore et dolore magna aliqua.
                     </p>
                 </div>
 
@@ -66,11 +65,12 @@ const ExperienceSection = () => {
                     pagination={{clickable: true}}
                     navigation={true}
                     breakpoints={{
+                        1536: {slidesPerView: 5},
                         1280: {slidesPerView: 4},
                         1024: {slidesPerView: 3},
                         768: {slidesPerView: 2},
-                        640: {slidesPerView: 1.5},
-                        0: {slidesPerView: 1.2},
+                        640: {slidesPerView: 2},
+                        0: {slidesPerView: 2},
                     }}
                 >
                     <>

@@ -42,7 +42,9 @@ export default function MCCHeaderSection() {
 
               </div>
             </Link>
-            
+
+
+
             {/* Org Enlist */}
             <Link to="/org-enlist" className="flex-shrink-0">
               <div className="cursor-pointer transition-transform hover:scale-105">
@@ -87,7 +89,6 @@ export default function MCCHeaderSection() {
                   alt="Registration"
                   className="w-[170px] h-[170px] md:w-[200px] md:h-[200px] object-contain"
                 />
-           
               </div>
             </Link>
           </div>

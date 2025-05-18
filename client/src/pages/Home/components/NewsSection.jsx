@@ -29,7 +29,7 @@ const NewsSection = () => {
     ];
 
     return (
-        <section className={`py-24`}>
+        <section className={`pt-16 md:pt-24`}>
             <div className={`px-4 container mx-auto`}>
                 <header className="text-center mb-6 md:mb-8">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
