@@ -77,6 +77,9 @@
     --slide-size: 100%;
 
     position: relative;
+    display: grid;
+    align-items: center;
+
 }
 
 
@@ -99,11 +102,11 @@
     }
 
     @media (min-width: 1024px) {
-        min-height: calc(100vh - 319px);
+        /*min-height: calc(100vh - 319px);*/
     }
 
     @media (min-width: 1536px) {
-        min-height: calc(100vh - 151px);
+        /*min-height: calc(100vh - 151px);*/
     }
 }
 

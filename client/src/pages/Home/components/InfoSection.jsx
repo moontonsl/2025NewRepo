@@ -32,16 +32,16 @@ const HeroSection = () => {
             <div className={`${styles.infoAbout}`}>
                 <div className="grid xl:grid-cols-2 mx-auto min-h-[564px]">
 
-                    <div className={`${styles.infoImageWrapper}`}>
+                    <div className={`${styles.infoImageWrapper} aspect-video lg:aspect-auto`}>
                         <img src={infoImage} alt="Moonton Student Leader"
-                             className={styles.infoImage}/>{/* gawing slide*/}
+                             className={`${styles.infoImage}`}/>{/* gawing slide*/}
                     </div>
                     <div className="p-4 lg:p-10 xl:p-24 flex flex-col gap-4 justify-center">
-                        <h2 className="text-[clamp(2rem,6vw,3rem)] font-bold leading-tight">
+                        <h2 className={`text-[clamp(2rem,6vw,3rem)] font-bold leading-tight`}>
                             HERE AT <br className={`hidden xl:block`}/>
                             MOONTON STUDENT LEADER <br className={`hidden md:block`}/>
                             PHILIPPINES we <span
-                            className="text-brand">CREATE {/* palipat2x -> <CREATE><SUPPORT><LEAD> sync with image */}</span>
+                            className={`${styles.infoHighlight} text-brand`}>CREATE {/* palipat2x -> <CREATE><SUPPORT><LEAD> sync with image */}</span>
                         </h2>
 
                         <p className="text-lg">

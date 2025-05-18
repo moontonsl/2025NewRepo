@@ -4,7 +4,7 @@
   }
 
   .infoAbout {
-    background: var(--background-brand-default);
+    background: var(--background-default-tertiary);
     //min-height: 564px;
 
     .infoImageWrapper {
@@ -17,6 +17,10 @@
       }
     }
 
+    .infoHighlight {
+      color: var(--background-brand-default);
+    }
+
     .infoImage {
       position: absolute;
       top: 0;
@@ -27,7 +31,7 @@
     }
 
     p {
-      color: var(--background-default-default);
+      //color: var(--background-default-default);
     }
 
     span {

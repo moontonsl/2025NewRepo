@@ -3,7 +3,7 @@
 
 .heroSection {
   .heroWrapper {
-    padding-block: get-padding(default);
+    //padding-block: get-padding(default);
 
     @media (min-width: 768px) {
       padding-block: get-padding(md);
@@ -49,13 +49,13 @@
     }
 
     @media (min-width: 1024px) {
-      min-height: calc(100svh - #{map.get($hero-padding, lg)});
+      //min-height: calc(100svh - #{map.get($hero-padding, lg)});
     }
 
     @media (min-width: 1536px) {
       display: grid;
       grid-template-columns: 70vw 1fr;
-      min-height: calc(100svh - #{map.get($hero-padding, xl)});
+      //min-height: calc(100svh - #{map.get($hero-padding, xl)});
     }
 
     .bentoBox {
@@ -88,6 +88,7 @@
 
         @media (min-width: 1024px) {
           height: 200px;
+          //height: 100%;
         }
       }
     }
