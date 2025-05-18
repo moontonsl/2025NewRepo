@@ -40,70 +40,86 @@ export default function MCCHeaderSection() {
     }
   ];
 
+  // First 4 items for the 2x2 grid
+  const mainNavItems = navItems.slice(0, 4);
+  // Registration item
+  const registrationItem = navItems[4];
+
   return (
     <>
       {/* MCC header section */}
       <div className="w-full">
-        <div className="flex flex-col items-center py-[30px] min-h-screen" style={bgStyle}>
+        <div className="flex flex-col items-center py-5 min-h-screen" style={bgStyle}>
           {/* MCC Logo and Title */}
-          <div className="flex flex-col items-center justify-center w-full mt-4 mb-6 md:mt-8 md:mb-12">
+          <div className="flex flex-col items-center justify-center w-full mt-2 mb-4 md:mt-4 md:mb-6 ">
+            
             <Img
               src="/images/MCC_HLOGO.png"
               alt="MCC Logo"
-              className="h-[130px] md:h-[180px] object-contain"
+              className="h-[200px] md:h-[383px] object-contain"
             />
           </div>
 
-          {/* Category Images: grid on mobile, single row on large screens */}
-          <div className="w-full max-w-7xl px-4">
-            {/* Desktop view (single row) */}
-            <div className="hidden lg:flex justify-center items-center gap-4 xl:gap-6">
+          {/* Category Images */}
+          <div className="w-full">
+            {/* Desktop view - single row */}
+            <div className="hidden lg:flex justify-center flex-wrap">
               {navItems.map((item, index) => (
-                <Link key={index} to={item.path} className="flex-shrink-0">
+                <Link key={index} to={item.path} className="">
                   <div className="cursor-pointer transition-transform hover:scale-105">
                     <Img
                       src={item.image}
                       alt={item.alt}
-                      className="w-[230px] h-[230px] xl:w-[250px] xl:h-[250px] object-contain"
+                      className="w-[300px] h-[300px] object-contain"
                     />
                   </div>
                 </Link>
               ))}
             </div>
             
-            {/* Tablet/Mobile view (grid) */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 lg:hidden">
-              {navItems.map((item, index) => (
-                <Link 
-                  key={index} 
-                  to={item.path} 
-                  className={`${
-                    index === 4 ? "col-span-2 md:col-span-1 mx-auto" : ""
-                  }`}
-                >
+            {/* Mobile/Tablet view (2x2 grid + centered registration) */}
+            <div className="lg:hidden">
+              {/* 2x2 Grid for main items */}
+              <div className="grid grid-cols-2">
+                {mainNavItems.map((item, index) => (
+                  <Link key={index} to={item.path}>
+                    <div className="cursor-pointer transition-transform hover:scale-110 flex flex-col items-center ">
+                      <Img
+                        src={item.image}
+                        alt={item.alt}
+                        className="w-[200px] h-[200px] md:w-[200px] md:h-[200px] object-contain  scale-125"
+                      />
+                    </div>
+                  </Link>
+                ))}
+              </div>
+              
+              {/* Centered Registration */}
+              <div className="flex justify-center">
+                <Link to={registrationItem.path}>
                   <div className="cursor-pointer transition-transform hover:scale-110 flex flex-col items-center">
                     <Img
-                      src={item.image}
-                      alt={item.alt}
-                      className="w-[150px] h-[150px] md:w-[180px] md:h-[180px] object-contain"
+                      src={registrationItem.image}
+                      alt={registrationItem.alt}
+                      className="w-[200px] h-[200px] md:w-[200px] md:h-[200px] object-contain  scale-125"
                     />
                   </div>
                 </Link>
-              ))}
+              </div>
             </div>
           </div>
 
           {/* Logos at bottom */}
-          <div className="flex justify-center items-center gap-6 md:gap-12 mt-8 md:mt-16 mb-4 md:mb-8">
+          <div className="flex justify-center items-center gap-6 md:gap-12 mt-6 md:mt-10 mb-2">
             <Img
               src="/images/MSL LOGO.png"
               alt="MSL Logo"
-              className="h-[50px] md:h-[80px] object-contain"
+              className="h-[40px] md:h-[60px] object-contain"
             />
             <Img
               src="/images/MLBB NEW LOGO.png"
               alt="MLBB Logo"
-              className="h-[50px] md:h-[80px] object-contain"
+              className="h-[40px] md:h-[60px] object-contain"
             />
           </div>
         </div>
