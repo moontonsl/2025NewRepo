@@ -1,6 +1,7 @@
 import { Heading, Text, Img } from "../../../components";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // Sample event data for different months
 const eventData = {
@@ -67,7 +68,7 @@ export default function EventCalendarSection() {
                     onClick={goToPreviousMonth}
                     disabled={currentMonthIndex === 0}
                   >
-                    <img src="/images/LeftButton.png" alt="Previous" className="w-6 h-6" />
+                    <ChevronLeft size={24} color="#F3C718" />
                   </button>
                   <h1 className="text-2xl font-bold text-white px-12">EVENT CALENDAR</h1>
                   <button 
@@ -75,7 +76,7 @@ export default function EventCalendarSection() {
                     onClick={goToNextMonth}
                     disabled={currentMonthIndex === availableMonths.length - 1}
                   >
-                    <img src="/images/RightButton.png" alt="Next" className="w-6 h-6" />
+                    <ChevronRight size={24} color="#F3C718" />
                   </button>
                 </div>
                 
