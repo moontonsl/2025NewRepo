@@ -11,6 +11,10 @@
       position: relative;
       overflow: hidden;
       min-height: 300px;
+
+      @media (min-width: 768px) {
+        min-height: 400px;
+      }
     }
 
     .infoImage {

@@ -88,14 +88,22 @@
     display: flex;
     touch-action: pan-y pinch-zoom;
     margin-left: calc(var(--slide-spacing) * -1);
-    min-height: calc(100vh - 187px);
+    /*min-height: calc(100vh - 187px);*/
+    /*min-height: 300px;*/
+
+    aspect-ratio: 16/9;
+
+
+    @media (min-width: 768px) {
+        min-height: 400px;
+    }
 
     @media (min-width: 1024px) {
-        min-height: calc(100vh - 187px);
+        min-height: calc(100vh - 319px);
     }
 
     @media (min-width: 1536px) {
-        min-height: calc(100vh - 187px);
+        min-height: calc(100vh - 151px);
     }
 }
 

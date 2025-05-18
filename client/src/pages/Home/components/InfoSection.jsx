@@ -38,13 +38,13 @@ const HeroSection = () => {
                     </div>
                     <div className="p-4 lg:p-10 xl:p-24 flex flex-col gap-4 justify-center">
                         <h2 className="text-[clamp(2rem,6vw,3rem)] font-bold leading-tight">
-                            Here at <br className={`hidden md:block`}/>
+                            HERE AT <br className={`hidden xl:block`}/>
                             MOONTON STUDENT LEADER <br className={`hidden md:block`}/>
                             PHILIPPINES we <span
                             className="text-brand">CREATE {/* palipat2x -> <CREATE><SUPPORT><LEAD> sync with image */}</span>
                         </h2>
 
-                        <p className="text-lg font-medium">
+                        <p className="text-lg">
                             Moonton Student Leaders (MSL) Philippines is an organization of student-gamers
                             from different colleges and universities all over the country. Under the supervision
                             of Moonton Technologies Philippines, Inc., the program was developed to promote the

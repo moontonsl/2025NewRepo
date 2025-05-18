@@ -24,8 +24,7 @@
     flex-direction: column;
     height: 100%;
     position: relative;
-    background: red;
-    min-height: calc(100svh - #{map.get($hero-padding, lg)});
+    //min-height: calc(100svh - #{map.get($hero-padding, lg)});
 
     &::before {
       content: "";
@@ -50,7 +49,7 @@
     }
 
     @media (min-width: 1024px) {
-      //min-height: calc(100svh - #{map.get($hero-padding, lg)});
+      min-height: calc(100svh - #{map.get($hero-padding, lg)});
     }
 
     @media (min-width: 1536px) {
@@ -64,7 +63,6 @@
       flex-direction: row;
       gap: .5rem;
       padding: .5rem;
-      background: greenyellow;
 
       @media (min-width: 1024px) {
         //flex-direction: row;
@@ -80,7 +78,7 @@
         flex-grow: 1;
         width: 100%;
         border-radius: 0.5rem;
-        height: 100px;
+        height: 60px;
         border: 1px solid rgba(0, 0, 0, 0.40);
         background: linear-gradient(270deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.03) 100%);
         box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.20);
@@ -88,7 +86,7 @@
 
         text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 
-        @media (min-width: 768px) {
+        @media (min-width: 1024px) {
           height: 200px;
         }
       }
