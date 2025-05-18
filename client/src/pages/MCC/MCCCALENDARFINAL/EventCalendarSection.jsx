@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const eventData = {
   
   "May": [
-    { dayOfWeek: "Saturday", dayNum: 3, month: "May", event: "University Rivals Visayas Day 1", status: "UPCOMING" },
+    { dayOfWeek: "Saturday", dayNum: 3, month: "MAY", event: "University Rivals Visayas Day 1", status: "UPCOMING" },
     { dayOfWeek: "Saturday", dayNum: 4, month: "May", event: "University Rivals Visayas Day 2", status: "UPCOMING" },
     { dayOfWeek: "Saturday", dayNum: 17, month: "May", event: "University Rivals Luzon A Day 1", status: "UPCOMING" },
     { dayOfWeek: "Saturday", dayNum: 18, month: "May", event: "University Rivals Luzon A Day 2", status: "UPCOMING" },
@@ -46,79 +46,79 @@ export default function EventCalendarSection() {
 
   return (
     <>
-      {/* event calendar section */}
-      <div className="w-full">
-        <div className="flex flex-col items-center justify-center bg-[url('/images/MCC2_CALENDAR_BG.png')] bg-cover bg-center min-h-screen py-8">
+      <div className="w-full min-h-screen bg-[url('/src/pages/MCC/images/MCC2_CALENDAR_BG.png')] bg-cover bg-center flex items-center justify-center">
+        <div className="w-full max-w-[92%] sm:max-w-[800px] mx-auto my-4 sm:my-8">
           {/* Calendar Container with Frame */}
-          <div className="w-full max-w-[800px] mx-auto px-4">
-            {/* Calendar Frame */}
-            <div className="relative">
-              <Img
-                src="/images/CalendarFrame.png"
-                alt="Calendar Frame"
-                className="w-full h-auto object-contain"
-              />
+          <div className="relative w-full">
+            <Img
+              src="/src/pages/MCC/images/CalendarFrame.png"
+              alt="Calendar Frame"
+              className="w-full h-auto"
+            />
+            
+            {/* Calendar Content - Positioned inside the frame */}
+            <div className="absolute top-[5%] left-[5%] right-[5%] bottom-[5%] flex flex-col">
+              {/* Calendar Header */}
+              <div className="flex items-center justify-center mb-2 sm:mb-5 relative">
+                <button 
+                  className={`absolute left-0 focus:outline-none ${currentMonthIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110 transition-transform'}`}
+                  onClick={goToPreviousMonth}
+                  disabled={currentMonthIndex === 0}
+                >
+                  <ChevronLeft size={20} className="sm:w-8 sm:h-8" color="#F3C718" />
+                </button>
+                
+                <h1 className="text-center text-white text-2xl sm:text-4xl font-bold">EVENT CALENDAR</h1>
+                
+                <button 
+                  className={`absolute right-0 focus:outline-none ${currentMonthIndex === availableMonths.length - 1 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110 transition-transform'}`}
+                  onClick={goToNextMonth}
+                  disabled={currentMonthIndex === availableMonths.length - 1}
+                >
+                  <ChevronRight size={20} className="sm:w-8 sm:h-8" color="#F3C718" />
+                </button>
+              </div>
               
-              {/* Calendar Content - Positioned inside the frame */}
-              <div className="absolute top-[5%] left-[5%] right-[5%] bottom-[5%] flex flex-col">
-                {/* Calendar Header with arrows */}
-                <div className="flex justify-center items-center py-2 relative">
-                  <button 
-                    className={`focus:outline-none absolute left-2 ${currentMonthIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110 transition-transform'}`}
-                    onClick={goToPreviousMonth}
-                    disabled={currentMonthIndex === 0}
-                  >
-                    <ChevronLeft size={24} color="#F3C718" />
-                  </button>
-                  <h1 className="text-2xl font-bold text-white px-12">EVENT CALENDAR</h1>
-                  <button 
-                    className={`focus:outline-none absolute right-2 ${currentMonthIndex === availableMonths.length - 1 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110 transition-transform'}`}
-                    onClick={goToNextMonth}
-                    disabled={currentMonthIndex === availableMonths.length - 1}
-                  >
-                    <ChevronRight size={24} color="#F3C718" />
-                  </button>
-                </div>
-                
-                {/* Month Banner */}
-                <div className="bg-[#F3C718] flex justify-center items-center py-1 my-2">
-                  <span className="text-xl font-bold text-black">{currentMonth}</span>
-                </div>
-                
-                {/* Table Headers */}
-                <div className="flex justify-between items-center py-2 border-b border-[#F3C718]">
-                  <div className="w-1/3 text-center font-bold text-[#F3C718] text-sm">DATE</div>
-                  <div className="w-1/3 text-center font-bold text-[#F3C718] text-sm">EVENT</div>
-                  <div className="w-1/3 text-center font-bold text-[#F3C718] text-sm">STATUS</div>
-                </div>
-                
-                {/* Calendar Events */}
-                <div className="flex-1 overflow-y-auto">
-                  {eventSchedule.map((item, index) => (
-                    <div key={index} className="flex justify-between items-center py-2 border-b border-[#F3C718]">
-                      {/* DATE Column */}
-                      <div className="w-1/3 flex justify-center">
-                        <div className="rounded-md overflow-hidden border border-[#F3C718] w-[60px]">
-                          <div className="text-[#F3C718] text-xs text-center font-bold py-0.5">{item.dayOfWeek}</div>
-                          <div className="text-[#F3C718] text-2xl font-bold text-center py-0.5">{item.dayNum}</div>
-                          <div className="bg-[#F3C718] text-black text-xs text-center font-bold py-0.5">{item.month}</div>
-                        </div>
-                      </div>
-                      
-                      {/* EVENT Column */}
-                      <div className="w-1/3 text-sm text-center text-[#F3C718] font-bold">
-                        {item.event}
-                      </div>
-                      
-                      {/* STATUS Column */}
-                      <div className="w-1/3 flex justify-center">
-                        <div className="text-[#F3C718] border border-[#F3C718] rounded-md px-3 py-1 text-center text-xs font-bold">
-                          {item.status}
-                        </div>
+              {/* Month Banner */}
+              <div className="bg-[#F3C718] flex justify-center items-center py-1 sm:py-3 mb-2 sm:mb-4">
+                <span className="text-xl sm:text-3xl font-bold text-black">{currentMonth}</span>
+              </div>
+              
+              {/* Table Headers */}
+              <div className="flex justify-between items-center py-1 sm:py-2 border-b border-[#F3C718]">
+                <div className="w-1/4 text-center font-bold text-[#F3C718] text-sm sm:text-xl">DATE</div>
+                <div className="w-2/4 text-center font-bold text-[#F3C718] text-sm sm:text-xl">EVENT</div>
+                <div className="w-1/4 text-center font-bold text-[#F3C718] text-sm sm:text-xl">STATUS</div>
+              </div>
+              
+              {/* Calendar Events */}
+              <div className="flex-grow overflow-y-auto overflow-scroll [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+                {eventSchedule.map((item, index) => (
+                  <div key={index} className="flex justify-between items-center py-1 sm:py-4 border-b border-[#F3C718]">
+                    {/* DATE Column */}
+                    <div className="w-1/4 flex justify-center">
+                      <div className="rounded-md overflow-hidden border border-[#F3C718] w-[55px] sm:w-[90px]">
+                        <div className="text-[#F3C718] text-[9px] sm:text-sm text-center font-bold py-0.5 sm:py-1">{item.dayOfWeek}</div>
+                        <div className="text-[#F3C718] text-2xl sm:text-4xl font-bold text-center leading-none py-0.5 sm:py-1">{item.dayNum}</div>
+                        <div className="bg-[#F3C718] text-black text-[9px] sm:text-sm text-center font-bold py-0.5 sm:py-1">{item.month}</div>
                       </div>
                     </div>
-                  ))}
-                </div>
+                    
+                    {/* EVENT Column */}
+                    <div className="w-2/4 px-1 text-center">
+                      <div className="text-[#F3C718] text-[11px] sm:text-lg font-bold">
+                        {item.event}
+                      </div>
+                    </div>
+                    
+                    {/* STATUS Column */}
+                    <div className="w-1/4 flex justify-center">
+                      <div className="text-[#F3C718] border border-[#F3C718] rounded-md px-2 sm:px-6 py-0.5 sm:py-2 text-center text-[10px] sm:text-base font-bold">
+                        {item.status}
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

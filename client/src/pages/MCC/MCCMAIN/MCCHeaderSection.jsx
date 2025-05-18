@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function MCCHeaderSection() {
   const bgStyle = {
-    backgroundImage: "url('/images/MCC2_BG.png')",
+    backgroundImage: "url('/src/pages/MCC/images/MCC2_BG.png')",
     backgroundSize: "cover",
     backgroundPosition: "center center",
     backgroundRepeat: "no-repeat",
@@ -14,27 +14,27 @@ export default function MCCHeaderSection() {
 
   const navItems = [
     {
-      image: "/images/Overview.png",
+      image: "/src/pages/MCC/images/Overview.png",
       alt: "Tournament Structure",
       path: "/tournament-structure"
     },
     {
-      image: "/images/OrgEnlist.png",
+      image: "/src/pages/MCC/images/OrgEnlist.png",
       alt: "Org Enlist",
       path: "/org-enlist"
     },
     {
-      image: "/images/Rulebook.png",
+      image: "/src/pages/MCC/images/Rulebook.png",
       alt: "Rulebook",
       path: "/rulebook"
     },
     {
-      image: "/images/Roadmap.png",
+      image: "/src/pages/MCC/images/Roadmap.png",
       alt: "Calendar",
       path: "/mcc/calendar"
     },
     {
-      image: "/images/Reg.png",
+      image: "/src/pages/MCC/images/Reg.png",
       alt: "Registration",
       path: "/registration"
     }
@@ -54,7 +54,7 @@ export default function MCCHeaderSection() {
           <div className="flex flex-col items-center justify-center w-full mt-2 mb-4 md:mt-4 md:mb-6 ">
             
             <Img
-              src="/images/MCC_HLOGO.png"
+              src="/src/pages/MCC/images/MCC_HLOGO.png"
               alt="MCC Logo"
               className="h-[200px] md:h-[383px] object-contain"
             />
@@ -67,13 +67,13 @@ export default function MCCHeaderSection() {
               {navItems.map((item, index) => (
                 <Link key={index} to={item.path} className="">
                   <div className="cursor-pointer transition-transform hover:scale-105">
-                    <Img
+                <Img
                       src={item.image}
                       alt={item.alt}
                       className="w-[300px] h-[300px] object-contain"
-                    />
-                  </div>
-                </Link>
+                />
+              </div>
+            </Link>
               ))}
             </div>
             
@@ -84,13 +84,13 @@ export default function MCCHeaderSection() {
                 {mainNavItems.map((item, index) => (
                   <Link key={index} to={item.path}>
                     <div className="cursor-pointer transition-transform hover:scale-110 flex flex-col items-center ">
-                      <Img
+                <Img
                         src={item.image}
                         alt={item.alt}
                         className="w-[200px] h-[200px] md:w-[200px] md:h-[200px] object-contain  scale-125"
-                      />
-                    </div>
-                  </Link>
+                />
+              </div>
+            </Link>
                 ))}
               </div>
               
@@ -98,13 +98,13 @@ export default function MCCHeaderSection() {
               <div className="flex justify-center">
                 <Link to={registrationItem.path}>
                   <div className="cursor-pointer transition-transform hover:scale-110 flex flex-col items-center">
-                    <Img
+                <Img
                       src={registrationItem.image}
                       alt={registrationItem.alt}
                       className="w-[200px] h-[200px] md:w-[200px] md:h-[200px] object-contain  scale-125"
-                    />
-                  </div>
-                </Link>
+                />
+              </div>
+            </Link>
               </div>
             </div>
           </div>
@@ -112,12 +112,12 @@ export default function MCCHeaderSection() {
           {/* Logos at bottom */}
           <div className="flex justify-center items-center gap-6 md:gap-12 mt-6 md:mt-10 mb-2">
             <Img
-              src="/images/MSL LOGO.png"
+              src="/src/pages/MCC/images/MSL LOGO.png"
               alt="MSL Logo"
               className="h-[40px] md:h-[60px] object-contain"
             />
             <Img
-              src="/images/MLBB NEW LOGO.png"
+              src="/src/pages/MCC/images/MLBB NEW LOGO.png"
               alt="MLBB Logo"
               className="h-[40px] md:h-[60px] object-contain"
             />
