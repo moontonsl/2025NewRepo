@@ -45,7 +45,7 @@ const experienceItems = [
 
 const ExperienceSection = () => {
     return (
-        <section className="py-24 bg-[#FFBD30] text-black ">
+        <section className="py-16 bg-[#FFBD30] text-black">
             <div className="container mx-auto w-[90vw] relative overflow-hidden md:px-4">
                 <div className="text-center mb-10">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">

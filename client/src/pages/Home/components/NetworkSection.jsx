@@ -11,7 +11,7 @@ const logos = [Logo1, Logo2, Logo3, Logo4, Logo5];
 
 const NetworkSection = () => {
     return (
-        <section className={`py-24 md:py-40 relative ${styles.networkSection}`}>
+        <section className={`py-16 md:py-40 relative ${styles.networkSection}`}>
 
             {/* Top gradient overlay */}
             <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#0a0a0a] to-transparent z-0 pointer-events-none" />
