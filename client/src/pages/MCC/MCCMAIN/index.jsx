@@ -31,29 +31,29 @@ export default function MCCMAINPage() {
         </div>
 
         {/* Desktop / tablet nav (row) */}
-        <div className="hidden md:flex justify-center flex-wrap gap-4">
+        <div className="grid grid-cols-2 sm:flex sm:justify-center sm:flex-wrap overflow-hidden">
           {navItems.map((item, idx) => (
             <Link key={idx} to={item.path} className="transition-transform hover:scale-105">
-              <Img src={item.image} alt={item.alt} className="w-[300px] h-[300px] object-contain" />
+              <Img src={item.image} alt={item.alt} className="sm:w-[300px] sm:h-[300px] object-contain" />
             </Link>
           ))}
         </div>
 
         {/* Mobile nav */}
-        <div className="md:hidden w-full">
-          <div className="grid grid-cols-2">
-            {mainItems.map((item, idx) => (
-              <Link key={idx} to={item.path} className="transition-transform hover:scale-110 flex justify-center">
-                <Img src={item.image} alt={item.alt} className="w-[200px] h-[200px] object-contain scale-125" />
-              </Link>
-            ))}
-          </div>
-          <div className="flex justify-center mt-2">
-            <Link to={calendarItem.path} className="transition-transform hover:scale-110 flex justify-center">
-              <Img src={calendarItem.image} alt={calendarItem.alt} className="w-[200px] h-[200px] object-contain scale-125" />
-            </Link>
-          </div>
-        </div>
+        {/*<div className="md:hidden w-full">*/}
+        {/*  <div className="grid grid-cols-2">*/}
+        {/*    {mainItems.map((item, idx) => (*/}
+        {/*      <Link key={idx} to={item.path} className="transition-transform hover:scale-110 flex justify-center">*/}
+        {/*        <Img src={item.image} alt={item.alt} className="w-[200px] h-[200px] object-contain scale-125" />*/}
+        {/*      </Link>*/}
+        {/*    ))}*/}
+        {/*  </div>*/}
+        {/*  <div className="flex justify-center mt-2">*/}
+        {/*    <Link to={calendarItem.path} className="transition-transform hover:scale-110 flex justify-center">*/}
+        {/*      <Img src={calendarItem.image} alt={calendarItem.alt} className="w-[200px] h-[200px] object-contain scale-125" />*/}
+        {/*    </Link>*/}
+        {/*  </div>*/}
+        {/*</div>*/}
 
         {/* Bottom logos */}
         <div className="flex justify-center items-center gap-6 md:gap-12 mt-6 md:mt-10 mb-2">
