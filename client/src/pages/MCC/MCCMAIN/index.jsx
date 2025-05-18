@@ -37,8 +37,7 @@ export default function MCCMAINPage() {
               <Img src={item.image} alt={item.alt} className="w-[300px] h-[300px] object-contain" />
             </Link>
           ))}
-        </div>
-//Try comment
+        </div
 
 
         {/* Mobile nav */}
