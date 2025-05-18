@@ -1,4 +1,4 @@
-//@use "./global/debug";
+@use "./global/debug";
 
 /*------------------------------------*\
   #GLOBAL-STYLING-HERE ↓
@@ -26,7 +26,7 @@
   main {
     grid-area: main;
     min-height: calc(100svh - 56px);
-    background-image: url('webbg2025.png'); /* Replace with the actual image path */
+    //background-image: url('webbg2025.png');
   }
 
   footer {
@@ -34,17 +34,6 @@
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 .swiper-button-next,

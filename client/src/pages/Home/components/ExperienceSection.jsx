@@ -76,12 +76,12 @@ const ExperienceSection = () => {
                     <>
                         {experienceItems.map((item, index) => (
                             <SwiperSlide key={index}>
-                                <article className="bg-white rounded-xl flex flex-col min-h-[400px] sm:min-h-[420px] aspect-[4/7] overflow-hidden">
+                                <article className="bg-white rounded-xl flex flex-col min-h-[300px] aspect-[4/5] overflow-hidden">
 
                                     <img
                                         src={item.img}
                                         alt={item.title}
-                                        className="w-full aspect-[4/5] object-cover rounded-t-xl"
+                                        className="w-full aspect-[1/1] object-cover rounded-t-xl"
                                         loading="lazy"
                                     />
 
@@ -92,7 +92,7 @@ const ExperienceSection = () => {
                                                 <p className="text-xs font-semibold">{item.subtitle}</p>
                                             )}
                                         </header>
-                                        <p className="text-sm mt-2 text-center">{item.description}</p>
+                                        {/*<p className="text-sm mt-2 text-center">{item.description}</p>*/}
                                     </div>
 
 
