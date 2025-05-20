@@ -16,7 +16,8 @@ export default function MCCMAINPage() {
   const navItems = [
     { image: "/src/pages/MCC/images/Overview.png", alt: "Tournament Structure", path: "/tournament-structure" },
     { image: "/src/pages/MCC/images/Rulebook.png", alt: "Rulebook", path: "/rulebook" },
-    { image: "/src/pages/MCC/images/Roadmap.png", alt: "Calendar", path: "/mcc/calendar" }
+    { image: "/src/pages/MCC/images/Roadmap.png", alt: "Calendar", path: "/mcc/calendar" },
+    { image: "/src/pages/MCC/images/Reg.png", alt: "Registration", path: "/registration" }
   ];
 
   const mainItems = navItems.slice(0, 2); // first two

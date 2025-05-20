@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Img } from "../../../components";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // Event data per month
@@ -36,14 +35,15 @@ export default function MCCCALENDARFINALPage() {
       <div className="flex flex-col items-center bg-[url('/src/pages/MCC/images/MCC2_CALENDAR_BG.png')] bg-cover bg-center min-h-[100vh] lg:min-h-screen py-4 sm:py-8">
         <div className="w-full max-w-[800px] mx-auto px-2 sm:px-4">
           {/* Frame */}
-          <div className="relative w-[95%] mx-auto md:w-full">
-            {/* Mobile frame */}
-            <Img src="/src/pages/MCC/images/FrameMobile.png" alt="Calendar Frame Mobile" className="w-full h-auto md:hidden" />
-            {/* Desktop frame */}
-            <Img src="/src/pages/MCC/images/CalendarFrame.png" alt="Calendar Frame" className="hidden md:block w-full h-auto" />
-
-            {/* Content */}
-            <div className="absolute top-[5%] left-[5%] right-[5%] bottom-[5%] md:top-[3%] md:left-[3%] md:right-[3%] md:bottom-[3%] flex flex-col overflow-hidden">
+          <div className="relative w-[95%] md:w-full mx-auto">
+            <div
+              className="flex flex-col overflow-hidden p-4 sm:p-6" 
+              style={{
+                background: 'linear-gradient(152.36deg, #000000 9.71%, #1D1D1D 50.48%, #000000 91.25%)',
+                border: '0.64px solid #F3C718',
+                borderRadius: '6.4px',
+              }}
+            >
               {/* Header */}
               <div className="relative flex items-center justify-center mb-3">
                 <button onClick={prevMonth} disabled={monthIndex === 0} className={`absolute left-0 ${monthIndex === 0 ? "opacity-50 cursor-not-allowed" : "hover:scale-110 transition-transform"}`}> <ChevronLeft size={24} color="#F3C718" /> </button>
