@@ -1,5 +1,18 @@
 @import './variables.css';
 
+
+.register-main-bg {
+  min-height: 100vh;
+  width: 100vw;
+  background-image: url('webbg2025.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .form-container-register {
   max-width: 758px;
   height: 784px;
@@ -30,8 +43,8 @@
 }
 
 .form-container-register-step4 {
-  max-width: 758px;
-  height: 800px;
+  max-width: 800px;
+  height: 850px;
   margin: 100px auto; 
   padding: 1rem;
   background-color: #0A0A0A;
@@ -50,7 +63,7 @@
 }
 
 .form-container-register-step4.has-error {
-  height: 850px; /* or whatever you want when error appears */
+  height: 900px; /* or whatever you want when error appears */
 }
 
 .form-container-register-step4 {
@@ -182,6 +195,7 @@
 .input-field-register.suffix-select,
 .input-field-register.gender-select,
 .input-field-register.year-level-select,
+.input-field-register.course-select,
 .input-field-register.current-rank-select,
 .input-field-register.in-game-role-select,
 .input-field-register.main-hero-select{
@@ -199,6 +213,7 @@
 .input-field-register.suffix-select option
 .input-field-register.year-level-select option 
 .input-field-register.current-rank-select option
+.input-field-register.course-select option
 .input-field-register.in-game-role-select option
 .input-field-register.main-hero-select option{
   background-color: rgba(0, 0, 0, 0.8);
@@ -418,7 +433,7 @@
 
   /* 🔥 Will increase height when error appears */
   .form-container-register.has-error {
-    height: 1000px; /* Adjust height as needed */
+    height: 1050px; /* Adjust height as needed */
   }
 
   /* Styling for register buttons */

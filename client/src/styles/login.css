@@ -1,6 +1,17 @@
 @import './variables.css';
 
-/* Modal CSS */
+
+.login-main-bg {
+  min-height: 100vh;
+  width: 100vw;
+  background-image: url('webbg2025.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* Login Container */
 .login-container-login {

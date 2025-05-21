@@ -8,28 +8,24 @@ const Step1BasicDetails = ({
 }) => {
   const [localError, setLocalError] = useState('');
 
+  const requiredFields = [
+    'firstName',
+    'lastName',
+    'gender',
+    'birthday',
+    'age',
+    'contactNo',
+    'facebookLink',
+  ];
+
   const validateForm = () => {
     if (!/^09\d{9}$/.test(formData.contactNo)) {
       setLocalError('⚠️ Invalid number. Must be 11 digits and start with 09.');
       return false;
-    }
-    const requiredFields = [
-      'firstName',
-      'lastName',
-      'gender',
-      'birthday',
-      'age',
-      'contactNo',
-      'facebookLink',
-    ];
-    for (let field of requiredFields) {
-      if (!formData[field] || formData[field].toString().trim() === '') {
-        setLocalError('⚠️ Please fill in all the required fields.');
-        return false;
-      }
-    }
-    setLocalError('');
-    return true;
+   } else {
+    setErrorMessage('');
+  }
+  validateForm();
   };
 
   const handleFormSubmit = (e) => {
@@ -39,6 +35,16 @@ const Step1BasicDetails = ({
     }
   };
 
+  // This will validate and clear error on every change
+  const handleAnyInputChange = (e) => {
+    handleInputChange(e);
+    validateForm();
+  };
+
+  const handleAnyInputBlur = () => {
+    validateForm();
+  };
+
   const handleBirthdayChange = (e) => {
     const inputDate = new Date(e.target.value);
     const today = new Date();
@@ -46,26 +52,47 @@ const Step1BasicDetails = ({
     inputDate.setHours(0, 0, 0, 0);
 
     if (inputDate > today) {
-      setErrorMessage('⚠️ Future dates are not allowed. Please select a valid birthday.');
+      setErrorMessage('⚠️ Selected dates are not allowed. Please select a valid birthday.');
+      handleInputChange({ target: { name: 'age', value: '' } });
       return;
-    } else {
-      setErrorMessage('');
     }
-
-    handleInputChange(e);
 
     let age = today.getFullYear() - inputDate.getFullYear();
     const monthDiff = today.getMonth() - inputDate.getMonth();
     if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < inputDate.getDate())) {
       age -= 1;
     }
+
+    if (age < 16) {
+      setErrorMessage('⚠️ Age not allowed. Must be 16 or above.');
+      handleInputChange(e);
+      handleInputChange({ target: { name: 'age', value: '' } });
+      return;
+    }
+
+    if (age > 130) {
+      setErrorMessage('⚠️ Age not allowed.');
+      handleInputChange(e);
+      handleInputChange({ target: { name: 'age', value: '' } });
+      return;
+    }
+
+    // If valid, clear error
+    setErrorMessage('');
+    handleInputChange(e);
     handleInputChange({ target: { name: 'age', value: age } });
+    validateForm();
   };
 
   const handleContactChange = (e) => {
     const contact = e.target.value;
     if (/^\d*$/.test(contact) && contact.length <= 11) {
       handleInputChange(e);
+      // If valid, clear error while typing
+      if (/^09\d{9}$/.test(contact)) {
+        setErrorMessage('');
+      }
+      validateForm();
     }
   };
 
@@ -76,12 +103,44 @@ const Step1BasicDetails = ({
     } else {
       setErrorMessage('');
     }
+    validateForm();
   };
 
   return (
     <div className="">
       <h1 className="title-register">CREATE MSL ACCOUNT</h1>
       <h2 className="subtitle-register">BASIC DETAILS</h2>
+
+      {/* Dynamic Progress Bar for Step 1 */}
+      {(() => {
+        const filled = requiredFields.filter(
+          (field) => formData[field] && formData[field].toString().trim() !== ""
+        ).length;
+        const percent = Math.round((filled / requiredFields.length) * 25);
+
+        return (
+          <div style={{ margin: "16px 0" }}>
+            <div style={{
+              height: "12px",
+              background: "#eee",
+              borderRadius: "6px",
+              overflow: "hidden",
+              marginBottom: "4px"
+            }}>
+              <div style={{
+                width: `${percent}%`,
+                height: "100%",
+                background: "#f1c40f",
+                transition: "width 0.3s"
+              }} />
+            </div>
+            <div style={{ fontSize: "12px", color: "#555" }}>
+              Step 1 of 4 &mdash; {percent}% of this step complete
+            </div>
+          </div>
+        );
+      })()}
+
       <form className="form-register" onSubmit={handleFormSubmit}>
         <div className="form-row-register">
           <div className="input-group-register left-side-register">
@@ -93,7 +152,8 @@ const Step1BasicDetails = ({
               id="firstName"
               name="firstName"
               value={formData.firstName}
-              onChange={handleInputChange}
+              onChange={handleAnyInputChange}
+              onBlur={handleAnyInputBlur}
               className="input-field-register"
               placeholder="e.g. Crisostomo"
               required
@@ -108,7 +168,8 @@ const Step1BasicDetails = ({
               id="lastName"
               name="lastName"
               value={formData.lastName}
-              onChange={handleInputChange}
+              onChange={handleAnyInputChange}
+              onBlur={handleAnyInputBlur}
               className="input-field-register"
               placeholder="e.g. Ibarra"
               required
@@ -124,7 +185,8 @@ const Step1BasicDetails = ({
               id="suffix"
               name="suffix"
               value={formData.suffix}
-              onChange={handleInputChange}
+              onChange={handleAnyInputChange}
+              onBlur={handleAnyInputBlur}
               className="input-field-register suffix-select"
             >
               <option value=""></option>
@@ -143,7 +205,8 @@ const Step1BasicDetails = ({
               id="gender"
               name="gender"
               value={formData.gender}
-              onChange={handleInputChange}
+              onChange={handleAnyInputChange}
+              onBlur={handleAnyInputBlur}
               className="input-field-register gender-select"
               required
             >
@@ -181,7 +244,7 @@ const Step1BasicDetails = ({
               id="age"
               name="age"
               value={formData.age}
-              onChange={handleInputChange}
+              onChange={handleAnyInputChange}
               className="input-field-register"
               readOnly
             />
@@ -213,14 +276,14 @@ const Step1BasicDetails = ({
               id="facebookLink"
               name="facebookLink"
               value={formData.facebookLink}
-              onChange={handleInputChange}
+              onChange={handleAnyInputChange}
+              onBlur={handleAnyInputBlur}
               className="input-field-register"
               placeholder="e.g. http://facebook.com/username"
               required
             />
           </div>
         </div>
-        {localError && <p className="error-message">{localError}</p>}
       </form>
     </div>
   );

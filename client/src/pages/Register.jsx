@@ -77,7 +77,7 @@ const Register = () => {
                 break;
             }
             case 3: {
-                const required = ['userId', 'serverId', 'squadName', 'squadAbbreviation', 'rank', 'inGameRole', 'mainHero'];
+                const required = ['userId', 'serverId', 'rank', 'inGameRole', 'mainHero'];
                 if (!requireFields(required)) {
                     setErrorMessage("⚠️ Please fill in all the required fields.");
                     return false;
@@ -128,44 +128,48 @@ const Register = () => {
     };
 
     return (
-        <div className={
-            currentStep === 4
-                ? `form-container-register-step4${errorMessage ? ' has-error' : ''}`
-                : `form-container-register${errorMessage ? ' has-error' : ''}`
-        }>
-            <form onSubmit={handleSubmit} className="form-register">
-                {stepComponents[currentStep]}
+        <main>
+            <div className="register-main-bg">
+                <div className={
+                    currentStep === 4
+                        ? `form-container-register-step4${errorMessage ? ' has-error' : ''}`
+                        : `form-container-register${errorMessage ? ' has-error' : ''}`
+                }>
+                    <form onSubmit={handleSubmit} className="form-register">
+                        {stepComponents[currentStep]}
 
-                {errorMessage && (
-                    <div className="error-message">
-                        <p>{errorMessage}</p>
-                    </div>
-                )}
+                        {errorMessage && (
+                            <div className="error-message">
+                                <p>{errorMessage}</p>
+                            </div>
+                        )}
 
-                <div className="navigation-buttons">
-                    {currentStep > 1 && (
-                        <button type="button" onClick={handlePrev} className="register-btn">
-                            Prev
-                        </button>
-                    )}
-                    {currentStep < 4 ? (
-                        <button type="button" onClick={handleNext} className="register-btn">
-                            Next
-                        </button>
-                    ) : (
-                        <button type="submit" className="register-btn">
-                            Submit
-                        </button>
-                    )}
+                        <div className="navigation-buttons">
+                            {currentStep > 1 && (
+                                <button type="button" onClick={handlePrev} className="register-btn">
+                                    Prev
+                                </button>
+                            )}
+                            {currentStep < 4 ? (
+                                <button type="button" onClick={handleNext} className="register-btn">
+                                    Next
+                                </button>
+                            ) : (
+                                <button type="submit" className="register-btn">
+                                    Submit
+                                </button>
+                            )}
+                        </div>
+
+                        <div className="footer-container-register">
+                            <p className="footer-text-register">
+                                Already have an account? <a href="/login" className="sign-in-link-login">Login here</a>
+                            </p>
+                        </div>
+                    </form>
                 </div>
-
-                <div className="footer-container-register">
-                    <p className="footer-text-register">
-                        Already have an account? <a href="/login" className="sign-in-link-login">Login here</a>
-                    </p>
-                </div>
-            </form>
-        </div>
+            </div>
+        </main>
     );
 };
 
