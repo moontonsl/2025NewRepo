@@ -1,5 +1,5 @@
 import {Routes, Route} from 'react-router-dom';
-import { Events, Home, News, Program, Resources, Login, Register } from '../pages';
+import { Events, Home, News, Program, Resources, Login, Register, MPLWatchFestS15 } from '../pages';
 
 const AppRoutes = () => (
     <Routes>
@@ -10,6 +10,7 @@ const AppRoutes = () => (
         <Route path="/resources" element={<Resources/>}/>
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
+        <Route path="/MPLWatchFestS15" element={<MPLWatchFestS15/>} />
 
 
         {/*<Route path="/network" element={<NetworkPage/>}/>*/}

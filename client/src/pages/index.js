@@ -6,3 +6,4 @@ export { default as Program } from './Program';
 export { default as Resources } from './Resources';
 export { default as Login } from './Login'; //
 export { default as Register } from './Register'; //
+export { default as MPLWatchFestS15 } from './MPLWatchFestS15'; //
