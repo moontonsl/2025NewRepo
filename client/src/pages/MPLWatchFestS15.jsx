@@ -92,6 +92,7 @@ const MPLWatchFestS15 = () => {
               placeholder="Valid Email Address"
               value={form.email}
               onChange={handleChange}
+              
               required
             />
             <input
