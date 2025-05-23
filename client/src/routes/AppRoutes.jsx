@@ -1,5 +1,5 @@
 import {Routes, Route} from 'react-router-dom';
-import { Events, Home, News, Program, Resources, Login, Register, MCCMAIN, MCCCALENDARFINAL, ToVote } from '../pages';
+import { Events, Home, News, Program, Resources, Login, Register } from '../pages';
 
 const AppRoutes = () => (
     <Routes>
@@ -10,6 +10,7 @@ const AppRoutes = () => (
         <Route path="/resources" element={<Resources/>}/>
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
+        {/*<Route path="/MPLWatchFestS15" element={<MPLWatchFestS15/>} />*/}
         <Route path="/mcc" element={<MCCMAIN/>} />
         <Route path="/mcc/calendar" element={<MCCCALENDARFINAL/>} />
         <Route path="/mcc/voting/to-vote" element={<ToVote/>} />

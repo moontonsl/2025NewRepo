@@ -9,3 +9,6 @@ export { default as Register } from '@/pages/Accounts/Registration/Register.jsx'
 export { default as MCCMAIN } from './MCC/MCCMAIN';
 export { default as MCCCALENDARFINAL } from './MCC/MCCCALENDARFINAL';
 export { default as ToVote } from './MCC/Voting/ToVote';
+export { default as Login } from './Login'; //
+export { default as Register } from './Register'; //
+export { default as MPLWatchFestS15 } from './MPLWatchFestS15'; //
