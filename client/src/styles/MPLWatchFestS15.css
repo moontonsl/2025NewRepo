@@ -2,9 +2,6 @@
   min-height: 100vh;
   width: 100vw;
   background: url('BGWF.png') center/cover no-repeat;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,8 +20,7 @@
   width: 280px;
   height: 200px;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 
 .mplwf-title {
@@ -34,19 +30,7 @@
   margin-bottom: 12px;
 }
 
-.mplwf-form input {
-  width: 100%;
-  margin-bottom: 16px;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #fff;
-  background: rgba(0,0,0,0.3);
-  color: #fff;
-  font-size: 16px;
-  outline: none;
-  text-align: center; /* Center the text */
-}
-
+.mplwf-form input,
 .mplwf-form select {
   width: 100%;
   margin-bottom: 16px;
@@ -57,15 +41,40 @@
   color: #fff;
   font-size: 16px;
   outline: none;
+  text-align: center;
+}
+
+.mplwf.region-select,
+.mplwf.venue-select,
+.mplwf.date-select {
   appearance: none;
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJNNC4yOTMgNi4yOTNsMy43MDcgMy43MDcgMy43MDctMy43MDdhMSAxIDAgMCAxIDEuNDE0IDEuNDE0bC00LjQxNCA0LjQxNGExIDEgMCAwIDEtMS40MTQgMGwtNC40MTQtNC40MTRhMSAxIDAgMSAxIDEuNDE0LTEuNDE0eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==");
   background-repeat: no-repeat;
   background-position: right 16px center;
   background-size: 12px;
   cursor: pointer;
-  text-align: center; /* Center the text */
   text-align-last: center;
-  text-indent: 0.01px; /* Fix for Chrome centering */
+  text-indent: 0.01px;
+}
+
+.mplwf-form option,
+.mplwf.region-select.option,
+.mplwf.venue-select.option,
+.mplwf.date-select.option{
+  appearance: none;
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJNNC4yOTMgNi4yOTNsMy43MDcgMy43MDcgMy43MDctMy43MDdhMSAxIDAgMCAxIDEuNDE0IDEuNDE0bC00LjQxNCA0LjQxNGExIDEgMCAwIDEtMS40MTQgMGwtNC40MTQtNC40MTRhMSAxIDAgMSAxIDEuNDE0LTEuNDE0eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==") no-repeat right 16px center;
+  background-color: transparent;
+  background-size: 12px;
+  padding-right: 5rem;
+  color: white;
+  border-color: #242424;
+  cursor: pointer;
+}
+
+.mplwf-form option {
+  background-color: #222;
+  color: #fff;
+  cursor: pointer;
 }
 
 .mplwf-form button[type="submit"] {
@@ -88,26 +97,15 @@
   color: #ffe066;
 }
 
-/* Date input placeholder and calendar icon color for MPLWatchFestS15 */
-.mplwf-form input[type="date"]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #ffffff;
-}
-.mplwf-form input[type="date"]::-moz-placeholder { /* Firefox 19+ */
-  color: #ffffff;
-}
-.mplwf-form input[type="date"]:-ms-input-placeholder { /* IE 10+ */
-  color: #ffffff;
-}
-.mplwf-form input[type="date"]::placeholder {
-  color: #ffffff;
-}
-
+/* Date input placeholder and calendar icon color */
 .mplwf-form input[type="date"] {
   text-align: center;
 }
-.mplwf-form input[type="date"]::placeholder {
+.mplwf-form input[type="date"]::placeholder,
+.mplwf-form input[type="date"]::-webkit-input-placeholder,
+.mplwf-form input[type="date"]::-moz-placeholder,
+.mplwf-form input[type="date"]:-ms-input-placeholder {
   color: #ffffff;
-  text-align: center;
 }
 
 /* Calendar icon color for date input */
@@ -124,26 +122,9 @@
   margin: 0;
 }
 .mplwf-form input[type="number"] {
-  -moz-appearance: textfield; /* Firefox */
+  -moz-appearance: textfield;
 }
 
-.mplwf-flatpickr {
-  width: 100%;
-  margin-bottom: 16px;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #fff;
-  background: rgba(0,0,0,0.3);
-  color: #fff;
-  font-size: 16px;
-  outline: none;
-  text-align: center;
-}
-
-.mplwf-flatpickr::placeholder {
-  color: #fff;
-  text-align: center;
-}
 
 /* Wrapper for the date input */
 .mplwf-date-wrapper {
@@ -153,20 +134,36 @@
 
 /* Mobile-specific placeholder styling */
 @media only screen and (max-width: 768px) {
-  .mplwf-date-mobile::placeholder {
+  .mplwf-date-mobile-placeholder:empty::before {
+    content: "Please click to select date";
     color: rgba(255,255,255,0.7);
-    text-align: center;
+    position: absolute;
+    pointer-events: none;
     font-size: 15px;
-    letter-spacing: 0.5px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;      /* vertical center */
+    justify-content: center;  /* horizontal center */
+    text-align: center;
+    background: transparent;
+    z-index: 2;
+    padding-left: 0;
   }
-}
+  .mplwf-date-wrapper {
+    position: relative;
+    width: 100%;
+  }
 
-/* Custom placeholder for mobile */
-@media only screen and (max-width: 768px) {
-  .mplwf-date-wrapper input[type="date"].mplwf-date-mobile:placeholder-shown + .mplwf-date-placeholder,
-  .mplwf-date-wrapper input[type="date"].mplwf-date-mobile:not(:focus):not([value]) + .mplwf-date-placeholder {
-    display: block;
+  .mplwf-title {
+  color: #fff;
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 12px;
   }
+
   .mplwf-date-placeholder {
     position: absolute;
     left: 0;
@@ -175,11 +172,95 @@
     height: 100%;
     color: rgba(255,255,255,0.7);
     font-size: 15px;
-    letter-spacing: 0.5px;
-    text-align: center;
-    line-height: 44px; /* Adjust to match input height */
+    display: flex;
+    align-items: flex-start;    
+    justify-content: center;
     pointer-events: none;
     background: transparent;
+    z-index: 2;
+    text-align: center;
+    padding-top: 15px
+  }
+
+  .mplwf-date-input {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+    appearance: none; /* Remove default dropdown styling */
+
+  }
+
+  /* Hide the native calendar/dropdown icon for date input on mobile */
+  .mplwf-date-mobile::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+  }
+  .mplwf-date-mobile::-webkit-inner-spin-button,
+  .mplwf-date-mobile::-webkit-clear-button {
     display: none;
   }
+  /* For Firefox */
+  .mplwf-date-mobile::-moz-focus-inner {
+    border: 0;
+  }
+  /* For Edge/IE */
+  .mplwf-date-mobile::-ms-expand {
+    display: none;
+    
+  }
+
+  .mplwf.region-select,
+  .mplwf.venue-select,
+  .mplwf.date-select {
+    background-position: right -9999px center;
+    background-image: none;
+  }
 }
+
+.mplwf-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.mplwf-modal {
+  background: #000000;
+  color: white;
+  padding: 32px 24px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  text-align: center;
+  min-width: 260px;
+  border-width: 1px;
+  border-color: #fff;
+}
+
+.mplwf-modal button {
+  margin-top: 18px;
+  padding: 8px 24px;
+  border-radius: 8px;
+  border: none;
+  background: #ffe066;
+  color: #222;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+
