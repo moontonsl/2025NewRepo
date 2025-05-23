@@ -1,6 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function ToVotePage() {
+  // Temporary state management until backend is ready
+  const [userId, setUserId] = useState("");
+  const [serverId, setServerId] = useState("");
+  const [userStatus, setUserStatus] = useState(null); // null = not checked, 'eligible' = can vote, 'voted' = already voted
+  const [ign, setIgn] = useState("");
+
+  // Temporary function to simulate backend check
+  const checkEligibility = () => {
+    // This is temporary logic - replace with actual API call when backend is ready
+    if (userId && serverId) {
+      // Simulate API call delay
+      setTimeout(() => {
+        // For testing: if userId ends with '1', simulate already voted user
+        if (userId.endsWith('1')) {
+          setUserStatus('voted');
+          setIgn('TestUser1');
+        } else {
+          setUserStatus('eligible');
+          setIgn('TestUser2');
+        }
+      }, 500);
+    }
+  };
+
   return (
     <>
       <style>
@@ -39,6 +63,9 @@ export default function ToVotePage() {
               <label className="block text-white text-xl mb-2 text-center font-space-grotesk">USER ID</label>
               <input 
                 type="text" 
+                value={userId}
+                onChange={(e) => setUserId(e.target.value)}
+                onBlur={checkEligibility}
                 placeholder="e.g. 31244913 (****)"
                 className="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-gray-400 text-base placeholder-gray-600 font-space-grotesk"
               />
@@ -49,34 +76,65 @@ export default function ToVotePage() {
               <label className="block text-white text-xl mb-2 text-center font-space-grotesk">SERVER ID</label>
               <input 
                 type="text" 
+                value={serverId}
+                onChange={(e) => setServerId(e.target.value)}
+                onBlur={checkEligibility}
                 placeholder="e.g. ********* (2032)"
                 className="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-gray-400 text-base placeholder-gray-600 font-space-grotesk"
               />
             </div>
             
-            {/* Account Eligible */}
-            <div className="flex items-center justify-center gap-2 mt-4">
-              <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
+            {/* Status Message (Account Eligible or Already Voted) */}
+            {userStatus && (
+              <div className="flex items-center justify-center gap-2 mt-4">
+                {userStatus === 'eligible' ? (
+                  <>
+                    <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span className="text-white text-base font-space-grotesk">Account Eligible</span>
+                  </>
+                ) : (
+                  <>
+                    <div className="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </div>
+                    <span className="text-white text-base font-space-grotesk">Already Voted</span>
+                  </>
+                )}
               </div>
-              <span className="text-white text-base font-space-grotesk">Account Eligible</span>
-            </div>
+            )}
             
             {/* Welcome Text */}
-            <div className="text-center mt-4 space-y-1">
-              <p className="text-white text-2xl font-space-grotesk">
-                Welcome <span className="text-[#F3C718]">&quot;IGN&quot;</span>
-              </p>
-              <p className="text-white text-2xl font-space-grotesk">
-                Click <span className="text-[#F3C718]">VOTE</span> to participate
-              </p>
-            </div>
+            {userStatus && (
+              <div className="text-center mt-4 space-y-1">
+                <p className="text-white text-2xl font-space-grotesk">
+                  {userStatus === 'eligible' ? 'Welcome ' : 'Hello '}
+                  <span className="text-[#F3C718]">&quot;{ign}&quot;</span>
+                </p>
+                <p className="text-white text-2xl font-space-grotesk">
+                  {userStatus === 'eligible' 
+                    ? <span>Click <span className="text-[#F3C718]">VOTE</span> to participate</span>
+                    : 'You already voted. Thank you for participating!'
+                  }
+                </p>
+              </div>
+            )}
             
-            {/* Vote Button */}
+            {/* Vote Button - Always visible */}
             <div className="flex justify-center mt-6">
-              <button className="w-40 h-14 bg-zinc-800 hover:bg-zinc-700 text-white text-2xl rounded-2xl transition-colors font-space-grotesk">
+              <button 
+                disabled={!userStatus || userStatus === 'voted'}
+                className={`w-40 h-14 ${
+                  userStatus === 'eligible'
+                    ? 'bg-zinc-800 hover:bg-zinc-700 text-white' 
+                    : 'bg-zinc-700 text-gray-400 cursor-not-allowed'
+                } text-2xl rounded-2xl transition-colors font-space-grotesk`}
+              >
                 VOTE
               </button>
             </div>
