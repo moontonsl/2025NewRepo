@@ -1,5 +1,5 @@
 import {Routes, Route} from 'react-router-dom';
-import { Events, Home, News, Program, Resources, Login, Register } from '../pages';
+import {Events, Home, News, Program, Resources, Login, Register, MCCMAIN, MCCCALENDARFINAL, ToVote} from '../pages';
 
 const AppRoutes = () => (
     <Routes>

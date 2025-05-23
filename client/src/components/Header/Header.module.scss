@@ -71,6 +71,7 @@
 
       &.open {
         display: flex;
+        z-index: 999;
       }
     }
   }

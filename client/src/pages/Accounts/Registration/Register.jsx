@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Step1BasicDetails from './Step1BasicDetails';
-import Step2EducationDetails from './Step2EducationDetails';
-import Step3GameDetails from './Step3GameDetails';
-import Step4AccountCredentials from './Step4AccountCredentials';
 import '../styles/register.css';
+import Step1BasicDetails from "@/pages/Accounts/components/Step1BasicDetails.jsx";
+import Step2EducationDetails from "@/pages/Accounts/components/Step2EducationDetails.jsx";
+import Step3GameDetails from "@/pages/Accounts/components/Step3GameDetails.jsx";
+import Step4AccountCredentials from "@/pages/Accounts/components/Step4AccountCredentials.jsx";
 
 const initialFormData = {
     // Step 1
