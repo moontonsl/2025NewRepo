@@ -32,10 +32,10 @@ export default function MCCCALENDARFINALPage() {
 
   return (
     <div className="w-full bg-black-900">
-      <div className="flex flex-col items-center bg-[url('/src/pages/MCC/images/MCC2_CALENDAR_BG.png')] bg-cover bg-center min-h-[100vh] lg:min-h-screen py-4 sm:py-8">
+      <div className="flex flex-col items-center bg-[url('/src/pages/MCC/images/MCC2_CALENDAR_BG.png')] bg-fixed bg-cover bg-center min-h-[100vh] lg:min-h-screen py-4 sm:py-8">
         <div className="w-full max-w-[800px] mx-auto px-2 sm:px-4">
           {/* Frame */}
-          <div className="relative w-[95%] md:w-full mx-auto">
+          <div className="relative w-[95%] md:w-full">
             <div
               className="flex flex-col overflow-hidden p-4 sm:p-6" 
               style={{
